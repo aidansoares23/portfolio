@@ -358,6 +358,9 @@
         font-family: "DM Mono", monospace;
         font-size: 0.8rem;
         position: relative;
+        transition:
+          border-color 0.6s ease,
+          box-shadow 0.6s ease;
       }
       .hero-card::before {
         content: "";
@@ -371,6 +374,22 @@
           rgba(96, 200, 240, 0.1)
         );
         z-index: -1;
+        animation: shimmerPulse 5s ease-in-out 2.2s infinite;
+      }
+
+      @keyframes shimmerPulse {
+        0%,
+        100% {
+          opacity: 0.55;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      .hero-card.typed {
+        border-color: rgba(200, 240, 96, 0.28);
+        box-shadow: 0 0 24px rgba(200, 240, 96, 0.06);
       }
 
       .card-header {
@@ -528,18 +547,21 @@
 
       /* About */
       #about {
+        border-top: 1px solid var(--border);
+      }
+
+      .about-inner {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 6rem;
+        gap: 5rem;
         align-items: start;
-        border-top: 1px solid var(--border);
       }
 
       .about-text {
         font-size: 1.05rem;
         line-height: 1.8;
         color: var(--muted);
-        margin-bottom: 2rem;
+        margin-bottom: 1.75rem;
       }
       .about-text strong {
         color: var(--text);
@@ -548,9 +570,8 @@
 
       .skills-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-top: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
       }
 
       .skill-cat h4 {
@@ -584,38 +605,6 @@
         color: var(--accent);
       }
 
-      .about-stats {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-
-      .stat-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 1.5rem;
-        border-bottom: 1px solid var(--border);
-      }
-      .stat-row:last-child {
-        border-bottom: none;
-      }
-
-      .stat-num {
-        font-family: "DM Serif Display", serif;
-        font-size: 3.5rem;
-        letter-spacing: -0.04em;
-        color: var(--accent);
-        line-height: 1;
-      }
-      .stat-label {
-        font-size: 0.85rem;
-        color: var(--muted);
-        max-width: 140px;
-        text-align: right;
-        line-height: 1.4;
-      }
-
       /* Projects */
       #projects {
         border-top: 1px solid var(--border);
@@ -630,7 +619,7 @@
 
       .projects-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.5px;
         background: var(--border);
         border: 1px solid var(--border);
@@ -957,9 +946,9 @@
         .hero-title-break {
           display: inline;
         }
-         .hero-title-dot {
-           display: none;
-         }
+        .hero-title-dot {
+          display: none;
+        }
         #hero {
           grid-template-columns: 1fr;
           padding: 5.25rem 1.5rem 4.5rem;
@@ -970,9 +959,12 @@
         section {
           padding: 4rem 1.5rem;
         }
-        #about {
+        .about-inner {
           grid-template-columns: 1fr;
-          gap: 3rem;
+          gap: 2.5rem;
+        }
+        .skills-grid {
+          grid-template-columns: 1fr 1fr;
         }
         .projects-grid {
           grid-template-columns: 1fr;
@@ -1022,15 +1014,15 @@
         <div class="hero-tag">Available for SWE roles · 2026</div>
         <h1 class="hero-name">Aidan<br /><em>Soares</em></h1>
         <p class="hero-title">
-          <span>Full Stack Engineer</span
-          ><span class="hero-title-dot"> · </span
+          <span>Full Stack Engineer</span><span class="hero-title-dot"> · </span
           ><br class="hero-title-break" />
           CS @ Oregon State University
         </p>
         <p class="hero-desc">
-          I build elegant, high-performance web systems — from polished UIs to
-          robust APIs and cloud infrastructure. Passionate about developer
-          experience and products that actually matter.
+          I build full-stack web products end-to-end — data pipelines, REST
+          APIs, and the UIs that make them usable. I came to CS from wildland
+          fire operations and bring the same systems thinking: clear state,
+          predictable behavior, and no surprises.
         </p>
         <div class="hero-ctas">
           <a href="#projects" class="btn-primary">View Projects</a>
@@ -1058,103 +1050,76 @@
 
     <!-- About -->
     <section id="about">
-      <div class="about-left reveal">
-        <div class="section-label">About</div>
-        <h2 class="section-title">
-          Systems-minded<br />full-stack engineer,<br /><em>careful</em> by
-          default
-        </h2>
+      <div class="about-inner reveal">
+        <div class="about-text-col">
+          <div class="section-label">About</div>
+          <h2 class="section-title">
+            Systems-minded<br />full-stack engineer,<br /><em>careful</em> by
+            default
+          </h2>
 
-        <p class="about-text">
-          I'm a
-          <strong>Computer Science senior at Oregon State University</strong>
-          (remote), graduating <strong>June 2026</strong>. I build full-stack
-          products end-to-end, with a bias toward clarity, reliability, and
-          shipping.
-        </p>
+          <p class="about-text">
+            <strong>CS senior at Oregon State</strong> (remote), graduating
+            <strong>June 2026</strong>. I build full-stack products end-to-end —
+            data modeling, API design, UI polish — with a bias toward clarity
+            and shipping over cleverness.
+          </p>
 
-        <p class="about-text">
-          Lately I've been focused on <strong>City Insight</strong> — a city
-          analytics app that ingests public datasets and user reviews, turns
-          them into <strong>versioned metrics</strong>, and presents them
-          through <strong>clean APIs</strong> and responsive, map-driven
-          dashboards.
-        </p>
+          <p class="about-text">
+            Before CS, I supervised a
+            <strong>20-person wildland fuel reduction crew</strong> for Santa
+            Barbara County Fire — zero incidents over 16 months of
+            high-consequence operations. I bring the same approach to
+            engineering: predictable systems, clear state, no surprises.
+          </p>
+        </div>
 
-        <p class="about-text">
-          I care about the details across the stack:
-          <strong>data modeling, API ergonomics, performance,</strong> and UI
-          polish that feels intentional — like someone actually sweats the edge
-          cases.
-        </p>
+        <div class="about-skills-col">
+          <div class="skills-grid">
+            <div class="skill-cat">
+              <h4>Frontend</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Vite</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Tailwind</span>
+                <span class="skill-tag">Leaflet</span>
+              </div>
+            </div>
 
-        <div class="skills-grid">
-          <div class="skill-cat">
-            <h4>Frontend</h4>
-            <div class="skill-tags">
-              <span class="skill-tag">React</span>
-              <span class="skill-tag">Vite</span>
-              <span class="skill-tag">JavaScript</span>
-              <span class="skill-tag">Tailwind</span>
-              <span class="skill-tag">Leaflet</span>
+            <div class="skill-cat">
+              <h4>Backend</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Express</span>
+                <span class="skill-tag">REST APIs</span>
+                <span class="skill-tag">Go</span>
+                <span class="skill-tag">Auth</span>
+              </div>
+            </div>
+
+            <div class="skill-cat">
+              <h4>Data</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Firestore</span>
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">ETL</span>
+                <span class="skill-tag">sklearn</span>
+              </div>
+            </div>
+
+            <div class="skill-cat">
+              <h4>Tools</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Vercel</span>
+                <span class="skill-tag">Render</span>
+                <span class="skill-tag">Postman</span>
+                <span class="skill-tag">ESLint</span>
+              </div>
             </div>
           </div>
-
-          <div class="skill-cat">
-            <h4>Backend</h4>
-            <div class="skill-tags">
-              <span class="skill-tag">Node.js</span>
-              <span class="skill-tag">Express</span>
-              <span class="skill-tag">REST APIs</span>
-              <span class="skill-tag">Firebase Admin</span>
-              <span class="skill-tag">Auth</span>
-            </div>
-          </div>
-
-          <div class="skill-cat">
-            <h4>Data</h4>
-            <div class="skill-tags">
-              <span class="skill-tag">Firestore</span>
-              <span class="skill-tag">ETL Scripts</span>
-              <span class="skill-tag">Data Versioning</span>
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">SKLearn</span>
-            </div>
-          </div>
-
-          <div class="skill-cat">
-            <h4>Tools</h4>
-            <div class="skill-tags">
-              <span class="skill-tag">Git</span>
-              <span class="skill-tag">Vercel</span>
-              <span class="skill-tag">Render</span>
-              <span class="skill-tag">CI-friendly workflows</span>
-              <span class="skill-tag">Docs & polish</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="about-stats reveal">
-        <div class="stat-row">
-          <div class="stat-num">2026</div>
-          <div class="stat-label">B.S. Computer Science (OSU)</div>
-        </div>
-        <div class="stat-row">
-          <div class="stat-num">2</div>
-          <div class="stat-label">
-            Full-stack apps deployed (City Insight + FireSim)
-          </div>
-        </div>
-        <div class="stat-row">
-          <div class="stat-num">3+</div>
-          <div class="stat-label">
-            Data pipelines (public datasets → versioned metrics)
-          </div>
-        </div>
-        <div class="stat-row">
-          <div class="stat-num">∞</div>
-          <div class="stat-label">Iterations toward cleaner systems</div>
         </div>
       </div>
     </section>
@@ -1193,7 +1158,12 @@
             <span class="stack-tag">ExpressJS</span>
           </div>
           <div class="project-links">
-            <a href="#" class="project-link">
+            <a
+              href="https://city-insight-client.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-link"
+            >
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -1206,7 +1176,12 @@
               </svg>
               Live
             </a>
-            <a href="#" class="project-link">
+            <a
+              href="https://github.com/aidansoares23/city-insight-client"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-link"
+            >
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -1285,14 +1260,15 @@
           <div class="project-num">03</div>
           <h3 class="project-name">Workout<br />Tracker</h3>
           <p class="project-desc">
-            Workout logging app built as a clean CRUD system with a focus on
-            fast entry, sensible data structure, and a UI that’s easy to use
-            consistently.
+            Full-stack workout logger with a React frontend, Node/Express REST
+            API, and MongoDB backend. Structured around fast, consistent entry —
+            add, edit, and delete exercises with persistent data across
+            sessions. Deployed split across Vercel and Render.
           </p>
           <div class="project-stack">
-            <span class="stack-tag">React Native</span>
-            <span class="stack-tag">Go</span>
-            <span class="stack-tag">WebSockets</span>
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">Node.js</span>
+            <span class="stack-tag">Express</span>
             <span class="stack-tag">MongoDB</span>
           </div>
           <div class="project-links">
@@ -1334,6 +1310,44 @@
             </a>
           </div>
         </div>
+        <!-- Project 4 -->
+        <div class="project-card">
+          <div class="project-num">04</div>
+          <h3 class="project-name">This<br />Portfolio</h3>
+          <p class="project-desc">
+            Designed and built from scratch — no frameworks, no templates. The
+            constraint was intentional: own every pixel. Custom cursor,
+            typewriter animation with human-paced randomized delays, scroll
+            reveals, and a shimmer code card. Clean enough to be the first thing
+            I show.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">HTML</span>
+            <span class="stack-tag">CSS</span>
+            <span class="stack-tag">JavaScript</span>
+            <span class="stack-tag">Vercel</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/aidansoares23"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-link"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+                />
+              </svg>
+              Code
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1341,51 +1355,36 @@
     <section id="experience">
       <div class="reveal">
         <div class="section-label">Background</div>
-        <h2 class="section-title">Where I've<br /><em>worked</em></h2>
+        <h2 class="section-title">Experience &<br /><em>Work</em></h2>
       </div>
 
       <div class="timeline reveal">
         <div class="timeline-item">
-          <div class="timeline-date">Summer 2024</div>
-          <div class="timeline-role">Software Engineering Intern</div>
-          <div class="timeline-company">Vercel — San Francisco, CA</div>
+          <div class="timeline-date">Aug 2022 — Present</div>
+          <div class="timeline-role">Fulfillment Expert</div>
+          <div class="timeline-company">Target · San Luis Obispo, CA</div>
           <div class="timeline-desc">
-            Worked on the Edge Network team, improving cold-start performance by
-            18% through a new request routing algorithm. Shipped a major
-            internal developer tooling overhaul used by 200+ engineers.
+            Operate in a high-throughput environment with tight SLAs and little
+            room for error. Maintain a 99% packing/shipping accuracy rate by
+            following standardized workflows and using inventory systems
+            precisely. Consistently handle large item volume while balancing
+            speed, correctness, and customer impact.
           </div>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-date">Summer 2023</div>
-          <div class="timeline-role">Full Stack Engineering Intern</div>
-          <div class="timeline-company">Notion — San Francisco, CA</div>
-          <div class="timeline-desc">
-            Built the foundation for Notion's public API v2, including rate
-            limiting, OAuth2 flows, and webhook delivery infrastructure. API now
-            serves 1M+ requests/day.
+          <div class="timeline-date">Apr 2021 — Aug 2022</div>
+          <div class="timeline-role">
+            Wildland Fuel Reduction Crew Supervisor
           </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-date">2022 — Present</div>
-          <div class="timeline-role">Undergraduate Researcher</div>
-          <div class="timeline-company">Berkeley RISE Lab</div>
-          <div class="timeline-desc">
-            Researching fault-tolerant consensus in distributed databases under
-            Prof. Ion Stoica. Co-authored a paper on optimistic replication
-            strategies accepted to VLDB 2025.
+          <div class="timeline-company">
+            Santa Barbara County Fire Department · Lompoc, CA
           </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-date">2022 — 2023</div>
-          <div class="timeline-role">Co-founder & CTO</div>
-          <div class="timeline-company">Studyhall (EdTech Startup)</div>
           <div class="timeline-desc">
-            Built and launched a study scheduling platform from scratch. Grew to
-            2,000 active students across UC Berkeley, UCLA, and Stanford before
-            sunsetting to focus on research.
+            Led a 20-person crew across fuel-reduction projects, coordinating
+            daily operations, logistics, and safety protocols. Maintained a
+            zero-incident record by enforcing high standards in high-risk
+            environments while still meeting regulatory and project deadlines.
           </div>
         </div>
       </div>
@@ -1399,9 +1398,9 @@
         </div>
         <h2 class="contact-big">Let's build<br /><em>together</em></h2>
         <p class="contact-sub">
-          I'm actively looking for full-time SWE roles starting Summer 2026.
-          Whether it's a role, a project, or just a good conversation about
-          systems design — reach out.
+          I'm finishing my Computer Science degree at Oregon State and looking
+          for a full-time software engineering role starting Summer 2026. If
+          you're hiring or just want to connect, feel free to reach out.
         </p>
         <a href="mailto:aidansoares.dev@gmail.com" class="contact-email"
           >aidansoares.dev@gmail.com</a
@@ -1430,6 +1429,8 @@
           </a>
           <a
             href="https://www.linkedin.com/in/aidan-soares/"
+            target="_blank"
+            rel="noopener noreferrer"
             class="social-link"
           >
             <svg
@@ -1448,21 +1449,6 @@
             </svg>
             LinkedIn
           </a>
-          <a href="#" class="social-link">
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-              />
-            </svg>
-            Resume
-          </a>
         </div>
       </div>
     </section>
@@ -1470,7 +1456,7 @@
     <footer>
       <span>© 2026 Aidan Soares</span>
       <span>Designed & built with care</span>
-      <span>Central Coast, CA</span>
+      <span>Based in California</span>
     </footer>
 
     <script>
@@ -1544,8 +1530,8 @@
           '  <span class="prop">gpa</span>: <span class="string">3.87</span>,',
           '  <span class="prop">stack</span>: [',
           '    <span class="string">"React"</span>, <span class="string">"Node.js"</span>,',
-          '    <span class="string">"TypeScript"</span>, <span class="string">"Go"</span>,',
-          '    <span class="string">"PostgreSQL"</span>, <span class="string">"AWS"</span>',
+          '    <span class="string">"Express"</span>, <span class="string">"Go"</span>,',
+          '    <span class="string">"Firestore"</span>, <span class="string">"Python"</span>',
           "  ],",
           '  <span class="prop">seeking</span>: <span class="string">"Full-time 2026"</span>,',
           '  <span class="prop">openToWork</span>: <span class="keyword">true</span>',
@@ -1553,9 +1539,8 @@
           "",
         ];
 
-        const finalLinePlain = "// The proof is below — projects + impact";
-        const finalLineHTML =
-          '<span class="comment">// The proof is below — projects + impact</span>';
+        const finalLinePlain = " // projects below";
+        const finalLineHTML = '<span class="comment">// projects below</span>';
 
         // Render all static lines immediately
         staticLines.forEach((html) => {
@@ -1574,10 +1559,16 @@
         const typeCursor = document.createElement("span");
         typeCursor.className = "type-cursor";
 
-        // Start typing after the card pop-in completes:
-        // CSS: delay 1000ms, duration 450ms → type start ~1700ms feels natural.
-        const CHAR_DELAY = 48;
-        const TYPE_START = 1700;
+        // Start typing after the card pop-in completes.
+        // Randomized delays feel human; spaces and punctuation breathe a little longer.
+        const TYPE_START = 2000;
+
+        function charDelay(ch) {
+          const base = 72 + Math.random() * 58; // 72–130 ms
+          if (ch === " " || ch === "—") return base + 75;
+          if (ch === "/" || ch === ".") return base + 30;
+          return base;
+        }
 
         setTimeout(() => {
           finalEl.appendChild(typeCursor);
@@ -1589,14 +1580,20 @@
                 document.createTextNode(finalLinePlain[i]),
                 typeCursor,
               );
+              const delay = charDelay(finalLinePlain[i]);
               i++;
-              setTimeout(typeChar, CHAR_DELAY);
+              setTimeout(typeChar, delay);
               return;
             }
 
             finalEl.innerHTML = finalLineHTML;
             typeCursor.remove();
-            setTimeout(() => finalEl.classList.add("comment-final"), 250);
+            setTimeout(() => {
+              finalEl.classList.add("comment-final");
+              // Brief border brightening when typing completes
+              const card = document.querySelector(".hero-card");
+              if (card) card.classList.add("typed");
+            }, 250);
           }
 
           typeChar();
