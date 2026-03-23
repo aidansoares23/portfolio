@@ -2,7 +2,7 @@
 
 Personal portfolio site for Aidan Soares, Full Stack Engineer. Built from scratch with no frameworks or templates — vanilla HTML, CSS, and JavaScript.
 
-**Live:** [aidansoares.dev](https://aidansoares.vercel.app)
+**Live:** [aidansoares.com](https://aidansoares.com)
 
 ## Stack
 
