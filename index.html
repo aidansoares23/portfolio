@@ -619,7 +619,7 @@
 
       .projects-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 1.5px;
         background: var(--border);
         border: 1px solid var(--border);
@@ -669,6 +669,24 @@
       }
       .project-card:hover::after {
         transform: scaleX(1);
+      }
+
+      .project-img {
+        margin: -2rem -2rem 1.5rem -2rem;
+        height: 180px;
+        overflow: hidden;
+        border-bottom: 1px solid var(--border);
+      }
+      .project-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+      .project-card:hover .project-img img {
+        transform: scale(1.04);
       }
 
       .project-num {
@@ -732,6 +750,69 @@
       .project-link svg {
         width: 12px;
         height: 12px;
+      }
+
+      /* Image gradient overlay */
+      .project-img {
+        position: relative;
+      }
+      .project-img::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 52px;
+        background: linear-gradient(to bottom, transparent, var(--bg));
+        pointer-events: none;
+        transition: background 0.3s;
+      }
+      .project-card:hover .project-img::after {
+        background: linear-gradient(to bottom, transparent, var(--surface));
+      }
+
+      /* Featured project card */
+      .project-card.featured {
+        grid-column: span 3;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        border: 1px solid rgba(200, 240, 96, 0.2);
+        box-shadow: 0 0 50px rgba(200, 240, 96, 0.07);
+      }
+      .project-card.featured .project-img {
+        margin: 0;
+        width: 44%;
+        flex-shrink: 0;
+        height: auto;
+        min-height: 340px;
+        border-bottom: none;
+        border-right: 1px solid var(--border);
+      }
+      .project-card.featured .project-img::after {
+        display: none;
+      }
+      .project-card.featured .project-body {
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .featured-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background: var(--accent);
+        color: #0a0a08;
+        font-family: "DM Mono", monospace;
+        font-size: 0.6rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 0.3rem 0.75rem;
+        border-radius: 2px;
+        z-index: 1;
       }
 
       /* Experience */
@@ -921,6 +1002,17 @@
         transform: translateY(0);
       }
 
+      /* Disable custom cursor on touch devices */
+      @media (pointer: coarse) {
+        body {
+          cursor: auto;
+        }
+        .cursor,
+        .cursor-ring {
+          display: none;
+        }
+      }
+
       /* Scrollbar */
       ::-webkit-scrollbar {
         width: 4px;
@@ -969,6 +1061,20 @@
         .projects-grid {
           grid-template-columns: 1fr;
         }
+        .project-card.featured {
+          flex-direction: column;
+          grid-column: span 1;
+          box-shadow: none;
+        }
+        .project-card.featured .project-img {
+          width: 100%;
+          min-height: 200px;
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+        }
+        .project-card.featured .project-body {
+          padding: 2rem;
+        }
         .projects-header {
           flex-direction: column;
           align-items: flex-start;
@@ -1000,7 +1106,7 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
+        <!-- <li><a href="#experience">Experience</a></li> -->
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -1093,7 +1199,7 @@
                 <span class="skill-tag">Node.js</span>
                 <span class="skill-tag">Express</span>
                 <span class="skill-tag">REST APIs</span>
-                <span class="skill-tag">Go</span>
+                <span class="skill-tag">SQL</span>
                 <span class="skill-tag">Auth</span>
               </div>
             </div>
@@ -1141,64 +1247,76 @@
 
       <div class="projects-grid reveal">
         <!-- Project 1 -->
-        <div class="project-card">
-          <div class="project-num">01 — Featured</div>
-          <h3 class="project-name">City<br />Insight</h3>
-          <p class="project-desc">
-            City analytics app that combines public datasets and user reviews
-            into versioned, non-destructive metrics. Built the data pipeline +
-            Firestore model, shipped secure REST endpoints, and designed
-            map-driven dashboards that make the tradeoffs visible.
-          </p>
-          <div class="project-stack">
-            <span class="stack-tag">React</span>
-            <span class="stack-tag">Vite</span>
-            <span class="stack-tag">Firestore</span>
-            <span class="stack-tag">Google Auth</span>
-            <span class="stack-tag">ExpressJS</span>
+        <div class="project-card featured">
+          <div class="project-img">
+            <img src="projects/CityInsight.png" alt="City Insight screenshot" />
+            <div class="featured-badge">Featured</div>
           </div>
-          <div class="project-links">
-            <a
-              href="https://city-insight-client.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-link"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
+          <div class="project-body">
+            <div class="project-num">01</div>
+            <h3 class="project-name">City Insight</h3>
+            <p class="project-desc">
+              City analytics app that combines public datasets and user reviews
+              into versioned, non-destructive metrics. Built the data pipeline +
+              Firestore model, shipped secure REST endpoints, and designed
+              map-driven dashboards that make the tradeoffs visible.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">React</span>
+              <span class="stack-tag">Vite</span>
+              <span class="stack-tag">Firestore</span>
+              <span class="stack-tag">Google Auth</span>
+              <span class="stack-tag">ExpressJS</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://city-insight-client.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
               >
-                <path
-                  d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"
-                />
-              </svg>
-              Live
-            </a>
-            <a
-              href="https://github.com/aidansoares23/city-insight-client"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-link"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"
+                  />
+                </svg>
+                Live
+              </a>
+              <a
+                href="https://github.com/aidansoares23/city-insight-client"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
               >
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
-                />
-              </svg>
-              Code
-            </a>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+                  />
+                </svg>
+                Code
+              </a>
+            </div>
           </div>
         </div>
 
         <!-- Project 2 -->
         <div class="project-card">
+          <div class="project-img">
+            <img
+              src="projects/WildfireCommand.png"
+              alt="Wildfire Command screenshot"
+            />
+          </div>
           <div class="project-num">02</div>
           <h3 class="project-name">Wildfire<br />Command</h3>
           <p class="project-desc">
@@ -1257,6 +1375,12 @@
 
         <!-- Project 3 -->
         <div class="project-card">
+          <div class="project-img">
+            <img
+              src="projects/ExerciseTracker.png"
+              alt="Workout Tracker screenshot"
+            />
+          </div>
           <div class="project-num">03</div>
           <h3 class="project-name">Workout<br />Tracker</h3>
           <p class="project-desc">
@@ -1312,6 +1436,9 @@
         </div>
         <!-- Project 4 -->
         <div class="project-card">
+          <div class="project-img">
+            <img src="projects/Portfolio.png" alt="Portfolio screenshot" />
+          </div>
           <div class="project-num">04</div>
           <h3 class="project-name">This<br />Portfolio</h3>
           <p class="project-desc">
@@ -1351,7 +1478,7 @@
       </div>
     </section>
 
-    <!-- Experience -->
+    <!-- Experience (commented out for dev portfolio focus)
     <section id="experience">
       <div class="reveal">
         <div class="section-label">Background</div>
@@ -1389,6 +1516,7 @@
         </div>
       </div>
     </section>
+    -->
 
     <!-- Contact -->
     <section id="contact">
@@ -1460,32 +1588,36 @@
     </footer>
 
     <script>
-      // ─── Custom cursor ────────────────────────────────────────────────────────
-      const cursor = document.getElementById("cursor");
-      const ring = document.getElementById("cursorRing");
-      let mx = 0,
-        my = 0,
-        rx = 0,
-        ry = 0;
+      // ─── Custom cursor (desktop only) ─────────────────────────────────────────
+      if (!window.matchMedia("(pointer: coarse)").matches) {
+        const cursor = document.getElementById("cursor");
+        const ring = document.getElementById("cursorRing");
+        let mx = 0,
+          my = 0,
+          rx = 0,
+          ry = 0;
 
-      document.addEventListener("mousemove", (e) => {
-        mx = e.clientX;
-        my = e.clientY;
-        cursor.style.transform = `translate(${mx - 4}px, ${my - 4}px)`;
-      });
+        document.addEventListener("mousemove", (e) => {
+          mx = e.clientX;
+          my = e.clientY;
+          cursor.style.transform = `translate(${mx - 4}px, ${my - 4}px)`;
+        });
 
-      function animateRing() {
-        rx += (mx - rx - 18) * 0.12;
-        ry += (my - ry - 18) * 0.12;
-        ring.style.transform = `translate(${rx}px, ${ry}px)`;
-        requestAnimationFrame(animateRing);
+        function animateRing() {
+          rx += (mx - rx - 18) * 0.12;
+          ry += (my - ry - 18) * 0.12;
+          ring.style.transform = `translate(${rx}px, ${ry}px)`;
+          requestAnimationFrame(animateRing);
+        }
+        animateRing();
+
+        document.querySelectorAll("a, button, .project-card").forEach((el) => {
+          el.addEventListener("mouseenter", () => ring.classList.add("hover"));
+          el.addEventListener("mouseleave", () =>
+            ring.classList.remove("hover"),
+          );
+        });
       }
-      animateRing();
-
-      document.querySelectorAll("a, button, .project-card").forEach((el) => {
-        el.addEventListener("mouseenter", () => ring.classList.add("hover"));
-        el.addEventListener("mouseleave", () => ring.classList.remove("hover"));
-      });
 
       // ─── Nav scroll effect ────────────────────────────────────────────────────
       const navbar = document.getElementById("navbar");
@@ -1530,7 +1662,7 @@
           '  <span class="prop">gpa</span>: <span class="string">3.87</span>,',
           '  <span class="prop">stack</span>: [',
           '    <span class="string">"React"</span>, <span class="string">"Node.js"</span>,',
-          '    <span class="string">"Express"</span>, <span class="string">"Go"</span>,',
+          '    <span class="string">"Express"</span>, <span class="string">"SQL"</span>,',
           '    <span class="string">"Firestore"</span>, <span class="string">"Python"</span>',
           "  ],",
           '  <span class="prop">seeking</span>: <span class="string">"Full-time 2026"</span>,',
