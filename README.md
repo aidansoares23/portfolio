@@ -16,4 +16,4 @@ assets/
 
 ## Live
 
-Deployed on Vercel — update with your production URL.
+Deployed on Vercel — aidansoares.com
