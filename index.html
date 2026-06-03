@@ -34,12 +34,14 @@
       crossorigin
     />
     <link rel="stylesheet" href="style.css" />
-    
+
     <!-- Vercel Web Analytics -->
     <script>
-      window.va = window.va || function () { 
-        (window.vaq = window.vaq || []).push(arguments); 
-      };
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
   </head>
@@ -127,20 +129,20 @@
               <div class="project-body">
                 <p>
                   City Insight started with a question I kept asking: is there a
-                  tool that compares cities using both hard data and what residents
-                  actually think about living there? I could not find one that did
-                  both well, so I built it.
+                  tool that compares cities using both hard data and what
+                  residents actually think about living there? I could not find
+                  one that did both well, so I built it.
                 </p>
                 <p>
                   The interesting problem was not the data: it was the query
                   interface. Most location-comparison tools force you to choose
                   metrics from a predefined list, which means they answer the
-                  question the designer anticipated, not the one you actually have.
-                  I built an AI chat interface on top of the structured dataset so
-                  that natural-language questions resolve against the same data
-                  driving the radar charts and maps. The challenge was keeping every
-                  interface synchronized: a filter set via chat should immediately
-                  be reflected in every view at once.
+                  question the designer anticipated, not the one you actually
+                  have. I built an AI chat interface on top of the structured
+                  dataset so that natural-language questions resolve against the
+                  same data driving the radar charts and maps. The challenge was
+                  keeping every interface synchronized: a filter set via chat
+                  should immediately be reflected in every view at once.
                 </p>
               </div>
               <footer class="project-footer">
@@ -233,28 +235,30 @@
               <div class="project-body">
                 <p>
                   Wildfire Command is a browser-based simulation where players
-                  manage real-time wildfire response, deploying helicopters, trucks,
-                  and crews against procedurally generated terrain. I had worked in
-                  wildland fuel reduction before this, so I had a specific sense of
-                  what plausible fire spread should actually look like.
+                  manage real-time wildfire response, deploying helicopters,
+                  trucks, and crews against procedurally generated terrain. I
+                  had worked in wildland fuel reduction before this, so I had a
+                  specific sense of what plausible fire spread should actually
+                  look like.
                 </p>
                 <p>
-                  The core problem was making that behavior feel real without the
-                  simulation being prohibitively expensive. Each cell in the terrain
-                  grid maintains wind exposure, fuel load, and moisture state; spread
-                  probability is recomputed only on changed cells, not the full grid.
-                  The result is fire that reads as coherent: it runs uphill, stalls
-                  on rocky outcroppings, backs slowly into the wind, without blocking
-                  the main thread. Terrain itself is procedurally generated using
-                  Perlin noise for elevation, BSP partitioning for large-scale
-                  structure, and cellular automata to produce natural-looking fuel
-                  density variation.
+                  The core problem was making that behavior feel real without
+                  the simulation being prohibitively expensive. Each cell in the
+                  terrain grid maintains wind exposure, fuel load, and moisture
+                  state; spread probability is recomputed only on changed cells,
+                  not the full grid. The result is fire that reads as coherent:
+                  it runs uphill, stalls on rocky outcroppings, backs slowly
+                  into the wind, without blocking the main thread. Terrain
+                  itself is procedurally generated using Perlin noise for
+                  elevation, BSP partitioning for large-scale structure, and
+                  cellular automata to produce natural-looking fuel density
+                  variation.
                 </p>
               </div>
               <footer class="project-footer">
                 <p class="project-stack">
-                  <code>Phaser 3</code><code>Firebase</code><code>Webpack</code
-                  ><code>Vitest</code>
+                  <code>Phaser 3</code><code>Javascript</code
+                  ><code>Firebase</code><code>Webpack</code><code>Vitest</code>
                 </p>
                 <nav class="project-links" aria-label="Wildfire Command links">
                   <a
@@ -337,19 +341,20 @@
               <div class="project-body">
                 <p>
                   Exercise Tracker is a workout logger: create, view, edit, and
-                  delete exercises with name, reps, weight, unit, and date. The goal
-                  was to build something complete and correct rather than clever, and
-                  to understand the full MERN stack end to end by building something
-                  I would actually use.
+                  delete exercises with name, reps, weight, unit, and date. The
+                  goal was to build something complete and correct rather than
+                  clever, and to understand the full MERN stack end to end by
+                  building something I would actually use.
                 </p>
                 <p>
-                  The decision I spent the most time on was weight units. Rather than
-                  storing a normalized value and converting on display, I store the
-                  weight and unit as entered. This means the data model reflects what
-                  the user typed, there is no lossy conversion happening in the
-                  background, and the validation and edit logic has to be unit-aware
-                  throughout. That last constraint turned out to be the most
-                  interesting part of the project.
+                  The decision I spent the most time on was weight units. Rather
+                  than storing a normalized value and converting on display, I
+                  store the weight and unit as entered. This means the data
+                  model reflects what the user typed, there is no lossy
+                  conversion happening in the background, and the validation and
+                  edit logic has to be unit-aware throughout. That last
+                  constraint turned out to be the most interesting part of the
+                  project.
                 </p>
               </div>
               <footer class="project-footer">

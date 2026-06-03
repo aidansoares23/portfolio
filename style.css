@@ -634,7 +634,7 @@ section > hr {
   gap: var(--sp-2);
 }
 
-/* Contact links — icon + text, larger, underline on hover */
+/* Contact links — icon + text, larger, animated underline on hover */
 .contact-list a {
   display: inline-flex;
   align-items: center;
@@ -642,12 +642,28 @@ section > hr {
   font-size: var(--text-lg);
   color: var(--color-ink);
   text-decoration: none;
-  transition: color 0.12s;
+  transition: color 0.18s;
+  position: relative;
+}
+
+.contact-list a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-accent);
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-list a:hover::after {
+  width: 100%;
 }
 
 .contact-list svg {
   color: var(--color-ink-mid);
-  transition: color 0.12s;
+  transition: color 0.18s;
 }
 
 .contact-list a:hover {
