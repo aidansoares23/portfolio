@@ -3,525 +3,514 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aidan Soares — Full Stack Engineer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Cabinet+Grotesk:wght@400;500;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/public/favicon/favicon.ico" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/public/favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/public/favicon/favicon-16x16.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/public/favicon/apple-touch-icon.png"
-    />
-    <link rel="manifest" href="/public/favicon/site.webmanifest" />
 
+    <title>Aidan Soares — Software Engineer</title>
+    <meta
+      name="description"
+      content="Aidan Soares is a software engineer and CS senior at Oregon State University graduating June 2026. Former wildland fire crew supervisor."
+    />
+    <meta property="og:title" content="Aidan Soares" />
+    <meta
+      property="og:description"
+      content="Software engineer. Former wildland fire crew supervisor. CS senior at Oregon State."
+    />
+    <meta property="og:type" content="website" />
+    <!-- // TODO: og:image — add a 1200×630 social preview image and uncomment:
+  <meta property="og:image" content="https://yourdomain.com/og-image.png"> -->
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="fonts/Newsreader-Roman.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/Newsreader-Italic.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <nav id="navbar">
-      <a href="#" class="nav-logo">aidan<span>.</span>soares</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <!-- <li><a href="#experience">Experience</a></li> -->
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+    <nav class="site-nav" aria-label="Site navigation">
+      <div class="nav-inner">
+        <a href="#" class="nav-home">Aidan Soares</a>
+        <ul class="nav-links" role="list">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#background">Background</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li class="nav-item-resume">
+            <!-- // TODO: replace href with path to your resume PDF -->
+            <a href="#" class="nav-resume">R&#233;sum&#233;</a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
-    <!-- Hero -->
-    <section id="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-grid"></div>
-
-      <div class="hero-left">
-        <div class="hero-tag">Available for SWE roles · 2026</div>
-        <h1 class="hero-name">Aidan<br /><em>Soares</em></h1>
-        <p class="hero-title">
-          <span>Full Stack Engineer</span><span class="hero-title-dot"> · </span
-          ><br class="hero-title-break" />
-          CS @ Oregon State University
-        </p>
-        <p class="hero-desc">
-          I build full-stack web products end-to-end — data pipelines, REST
-          APIs, and the UIs that make them usable. I came to CS from wildland
-          fire operations and bring the same systems thinking: clear state,
-          predictable behavior, and no surprises.
-        </p>
-        <div class="hero-ctas">
-          <a href="#projects" class="btn-primary">View Projects</a>
-          <a href="#contact" class="btn-ghost">Email Me →</a>
-        </div>
-      </div>
-
-      <div class="hero-right">
-        <div class="hero-card">
-          <div class="card-header">
-            <div class="dot red"></div>
-            <div class="dot yellow"></div>
-            <div class="dot green"></div>
-          </div>
-          <!-- The code lines are rendered via JS typewriter below -->
-          <code class="code-block" id="codeBlock"></code>
-        </div>
-      </div>
-
-      <div class="hero-scroll">
-        <span>Scroll</span>
-        <div class="scroll-line"></div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about">
-      <div class="about-inner reveal">
-        <div class="about-text-col">
-          <div class="section-label">About</div>
-          <h2 class="section-title">
-            Systems-minded<br />full-stack engineer,<br /><em>careful</em> by
-            default
-          </h2>
-
-          <p class="about-text">
-            <strong>CS senior at Oregon State</strong> (remote), graduating
-            <strong>June 2026</strong>. I build full-stack products end-to-end —
-            data modeling, API design, UI polish — with a bias toward clarity
-            and shipping over cleverness.
+    <main id="main">
+      <div class="page-wrap">
+        <!-- ── Opening ───────────────────────────────────────────── -->
+        <section class="opening" aria-label="Introduction">
+          <h1>Aidan Soares</h1>
+          <p class="hero-meta">
+            B.S. Computer Science &middot; Oregon State University &middot; June
+            2026
           </p>
-
-          <p class="about-text">
-            Before CS, I supervised a
-            <strong>20-person wildland fuel reduction crew</strong> for Santa
-            Barbara County Fire — zero incidents over 16 months of
-            high-consequence operations. I bring the same approach to
-            engineering: predictable systems, clear state, no surprises.
+          <hr class="hero-divider" aria-hidden="true" />
+          <p class="hero-intro">
+            Software engineer and CS senior at Oregon State, graduating June
+            2026 with a 3.88 GPA. Before this: a year and a half as a
+            <span class="accent-word">wildland fire crew supervisor</span>
+            in backcountry terrain. The two are more related than they look.
           </p>
-        </div>
+          <p class="availability">
+            <span class="dot" aria-hidden="true"></span>
+            Open to full-time engineering roles
+          </p>
+        </section>
 
-        <div class="about-skills-col">
-          <div class="skills-grid">
-            <div class="skill-cat">
-              <h4>Frontend</h4>
-              <div class="skill-tags">
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">Vite</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">Tailwind</span>
-                <span class="skill-tag">Leaflet</span>
-              </div>
-            </div>
+        <!-- ── Work ─────────────────────────────────────────────── -->
+        <section id="work" aria-label="Selected work">
+          <hr aria-hidden="true" />
+          <h2 class="section-label">Work</h2>
 
-            <div class="skill-cat">
-              <h4>Backend</h4>
-              <div class="skill-tags">
-                <span class="skill-tag">Node.js</span>
-                <span class="skill-tag">Express</span>
-                <span class="skill-tag">REST APIs</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">Auth</span>
+          <div class="project-list">
+            <!-- City Insight -->
+            <article class="project" data-reveal>
+              <header class="project-header">
+                <h3 class="project-title">
+                  <span class="project-num" aria-hidden="true">01</span>
+                  <a
+                    href="https://city-insight-client.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    City Insight | Capstone Project
+                  </a>
+                </h3>
+                <p class="project-tagline">
+                  A tool for comparing California cities across livability
+                  metrics.
+                </p>
+              </header>
+              <figure class="project-figure">
+                <a
+                  href="https://city-insight-client.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  tabindex="-1"
+                  aria-hidden="true"
+                >
+                  <img
+                    src="CityInsight.png"
+                    alt="City Insight dashboard showing a radar chart comparing multiple California cities across housing, transit, and walkability metrics"
+                    width="2880"
+                    height="1520"
+                    loading="lazy"
+                  />
+                </a>
+              </figure>
+              <div class="project-body">
+                <p>
+                  City Insight started with a question I kept asking: is there a
+                  tool that compares cities using both hard data and what residents
+                  actually think about living there? I could not find one that did
+                  both well, so I built it.
+                </p>
+                <p>
+                  The interesting problem was not the data: it was the query
+                  interface. Most location-comparison tools force you to choose
+                  metrics from a predefined list, which means they answer the
+                  question the designer anticipated, not the one you actually have.
+                  I built an AI chat interface on top of the structured dataset so
+                  that natural-language questions resolve against the same data
+                  driving the radar charts and maps. The challenge was keeping every
+                  interface synchronized: a filter set via chat should immediately
+                  be reflected in every view at once.
+                </p>
               </div>
-            </div>
+              <footer class="project-footer">
+                <p class="project-stack">
+                  <code>React 19</code><code>Vite</code><code>Tailwind</code
+                  ><code>Leaflet</code><code>Recharts</code
+                  ><code>Google OAuth</code>
+                </p>
+                <nav class="project-links" aria-label="City Insight links">
+                  <a
+                    href="https://city-insight-client.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg
+                      width="11"
+                      height="11"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="M1.5 10.5L10.5 1.5M10.5 1.5H5.5M10.5 1.5V6.5" />
+                    </svg>
+                    Live site
+                  </a>
+                  <a
+                    href="https://github.com/aidansoares23/city-insight-client"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                      />
+                    </svg>
+                    Source
+                  </a>
+                </nav>
+              </footer>
+            </article>
 
-            <div class="skill-cat">
-              <h4>Data</h4>
-              <div class="skill-tags">
-                <span class="skill-tag">Firestore</span>
-                <span class="skill-tag">MongoDB</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">ETL</span>
-                <span class="skill-tag">sklearn</span>
+            <!-- Wildfire Command -->
+            <article class="project" data-reveal>
+              <header class="project-header">
+                <h3 class="project-title">
+                  <span class="project-num" aria-hidden="true">02</span>
+                  <a
+                    href="https://wildfire-command.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Wildfire Command
+                  </a>
+                </h3>
+                <p class="project-tagline">
+                  A browser-based simulation game for managing wildfire
+                  response.
+                </p>
+              </header>
+              <figure class="project-figure">
+                <a
+                  href="https://wildfire-command.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  tabindex="-1"
+                  aria-hidden="true"
+                >
+                  <img
+                    src="WildfireCommand.png"
+                    alt="Wildfire Command gameplay showing a top-down terrain map with active fire spread and resource deployment controls"
+                    width="2880"
+                    height="1524"
+                    loading="lazy"
+                  />
+                </a>
+              </figure>
+              <div class="project-body">
+                <p>
+                  Wildfire Command is a browser-based simulation where players
+                  manage real-time wildfire response, deploying helicopters, trucks,
+                  and crews against procedurally generated terrain. I had worked in
+                  wildland fuel reduction before this, so I had a specific sense of
+                  what plausible fire spread should actually look like.
+                </p>
+                <p>
+                  The core problem was making that behavior feel real without the
+                  simulation being prohibitively expensive. Each cell in the terrain
+                  grid maintains wind exposure, fuel load, and moisture state; spread
+                  probability is recomputed only on changed cells, not the full grid.
+                  The result is fire that reads as coherent: it runs uphill, stalls
+                  on rocky outcroppings, backs slowly into the wind, without blocking
+                  the main thread. Terrain itself is procedurally generated using
+                  Perlin noise for elevation, BSP partitioning for large-scale
+                  structure, and cellular automata to produce natural-looking fuel
+                  density variation.
+                </p>
               </div>
-            </div>
+              <footer class="project-footer">
+                <p class="project-stack">
+                  <code>Phaser 3</code><code>Firebase</code><code>Webpack</code
+                  ><code>Vitest</code>
+                </p>
+                <nav class="project-links" aria-label="Wildfire Command links">
+                  <a
+                    href="https://wildfire-command.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg
+                      width="11"
+                      height="11"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="M1.5 10.5L10.5 1.5M10.5 1.5H5.5M10.5 1.5V6.5" />
+                    </svg>
+                    Live site
+                  </a>
+                  <a
+                    href="https://github.com/hornbuck/fire-sim"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                      />
+                    </svg>
+                    Source
+                  </a>
+                </nav>
+              </footer>
+            </article>
 
-            <div class="skill-cat">
-              <h4>Tools</h4>
-              <div class="skill-tags">
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">Vercel</span>
-                <span class="skill-tag">Render</span>
-                <span class="skill-tag">Postman</span>
-                <span class="skill-tag">ESLint</span>
+            <!-- Exercise Tracker -->
+            <article class="project" data-reveal>
+              <header class="project-header">
+                <h3 class="project-title">
+                  <span class="project-num" aria-hidden="true">03</span>
+                  <a
+                    href="https://exercise-tracker-dusky-gamma.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Exercise Tracker
+                  </a>
+                </h3>
+                <p class="project-tagline">A full-stack workout logger.</p>
+              </header>
+              <figure class="project-figure">
+                <a
+                  href="https://exercise-tracker-dusky-gamma.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  tabindex="-1"
+                  aria-hidden="true"
+                >
+                  <img
+                    src="ExerciseTracker.png"
+                    alt="Exercise Tracker interface showing a workout log with exercise name, sets, reps, and weight fields"
+                    width="2880"
+                    height="1520"
+                    loading="lazy"
+                  />
+                </a>
+              </figure>
+              <div class="project-body">
+                <p>
+                  Exercise Tracker is a workout logger: create, view, edit, and
+                  delete exercises with name, reps, weight, unit, and date. The goal
+                  was to build something complete and correct rather than clever, and
+                  to understand the full MERN stack end to end by building something
+                  I would actually use.
+                </p>
+                <p>
+                  The decision I spent the most time on was weight units. Rather than
+                  storing a normalized value and converting on display, I store the
+                  weight and unit as entered. This means the data model reflects what
+                  the user typed, there is no lossy conversion happening in the
+                  background, and the validation and edit logic has to be unit-aware
+                  throughout. That last constraint turned out to be the most
+                  interesting part of the project.
+                </p>
               </div>
-            </div>
+              <footer class="project-footer">
+                <p class="project-stack">
+                  <code>React</code><code>Node.js</code><code>Express</code
+                  ><code>MongoDB</code>
+                </p>
+                <nav class="project-links" aria-label="Exercise Tracker links">
+                  <a
+                    href="https://exercise-tracker-dusky-gamma.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg
+                      width="11"
+                      height="11"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="M1.5 10.5L10.5 1.5M10.5 1.5H5.5M10.5 1.5V6.5" />
+                    </svg>
+                    Live site
+                  </a>
+                  <a
+                    href="https://github.com/aidansoares23/exercise-tracker"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                      />
+                    </svg>
+                    Source
+                  </a>
+                </nav>
+              </footer>
+            </article>
+
+            <!-- // TODO: add a fourth project here if desired -->
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- Projects -->
-    <section id="projects">
-      <div class="projects-header reveal">
-        <div>
-          <div class="section-label">Work</div>
-          <h2 class="section-title">Selected <em>Projects</em></h2>
-        </div>
-        <a
-          href="https://github.com/aidansoares23"
-          class="btn-ghost"
-          style="flex-shrink: 0"
-          >All on GitHub →</a
-        >
-      </div>
-
-      <div class="projects-grid reveal">
-        <!-- Project 1 -->
-        <div class="project-card featured">
-          <div class="project-img">
-            <img src="projects/CityInsight.png" alt="City Insight screenshot" />
-            <div class="featured-badge">Featured</div>
-          </div>
-          <div class="project-body">
-            <div class="project-num">01</div>
-            <h3 class="project-name">City Insight</h3>
-            <p class="project-desc">
-              City analytics app that combines public datasets and user reviews
-              into versioned, non-destructive metrics. Built the data pipeline +
-              Firestore model, shipped secure REST endpoints, and designed
-              map-driven dashboards that make the tradeoffs visible.
+        <!-- ── Background ────────────────────────────────────────── -->
+        <section id="background" aria-label="Background" data-reveal>
+          <hr aria-hidden="true" />
+          <h2 class="section-label">Background</h2>
+          <div class="background-prose">
+            <p>
+              From 2020 to 2023, I worked as a Wildland Fuel Reduction Crew
+              Supervisor for Santa Barbara County Fire. The role meant
+              coordinating prescribed burn operations and hazardous fuel
+              reduction projects, managing crew safety on terrain where
+              conditions change faster than plans do, and communicating with
+              incident command when the original plan needed revision. What the
+              job gave me was a specific interest in systems that need to be
+              legible under pressure: who has what information, how decisions
+              get made, what happens when the situation changes. That describes
+              most software worth building.
             </p>
-            <div class="project-stack">
-              <span class="stack-tag">React</span>
-              <span class="stack-tag">Vite</span>
-              <span class="stack-tag">Firestore</span>
-              <span class="stack-tag">Google Auth</span>
-              <span class="stack-tag">ExpressJS</span>
-            </div>
-            <div class="project-links">
-              <a
-                href="https://city-insight-client.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link"
-              >
+            <p>
+              I enrolled at Oregon State in 2023 and graduate in June 2026 with
+              a 3.88 GPA.
+            </p>
+          </div>
+        </section>
+
+        <!-- ── Contact ───────────────────────────────────────────── -->
+        <section id="contact" aria-label="Contact">
+          <hr aria-hidden="true" />
+          <h2 class="section-label">Get in touch</h2>
+          <p class="contact-intro">Email is the best way to reach me.</p>
+          <ul class="contact-list" role="list">
+            <li>
+              <a href="mailto:aidansoares.dev@gmail.com">
                 <svg
+                  width="17"
+                  height="17"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
                 >
-                  <path
-                    d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"
-                  />
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="M2 7l10 7 10-7" />
                 </svg>
-                Live
+                aidansoares.dev@gmail.com
               </a>
+            </li>
+            <li>
               <a
-                href="https://github.com/aidansoares23/city-insight-client"
+                href="https://github.com/aidansoares23"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="project-link"
               >
                 <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
+                  width="17"
+                  height="17"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  focusable="false"
                 >
                   <path
-                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+                    fill-rule="evenodd"
+                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
                   />
                 </svg>
-                Code
+                GitHub
               </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-card">
-          <div class="project-img">
-            <img
-              src="projects/WildfireCommand.png"
-              alt="Wildfire Command screenshot"
-            />
-          </div>
-          <div class="project-num">02</div>
-          <h3 class="project-name">Wildfire<br />Command</h3>
-          <p class="project-desc">
-            Browser-based wildfire management simulation. Built a modular fire
-            spread engine influenced by terrain + weather, plus a synchronized
-            simulation loop for predictable updates. Focused on clarity: tile
-            states, fuel burn-down, and a HUD that makes the system readable
-            while it runs.
-          </p>
-          <div class="project-stack">
-            <span class="stack-tag">Phaser 3</span>
-            <span class="stack-tag">JavaScript</span>
-            <span class="stack-tag">Simulation Loop</span>
-            <span class="stack-tag">Grid / Tile System</span>
-            <span class="stack-tag">Weather Inputs</span>
-          </div>
-          <div class="project-links">
-            <a
-              href="https://wildfire-command.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-link"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/aidan-soares/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <path
-                  d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"
-                />
-              </svg>
-              Live
+                <svg
+                  width="17"
+                  height="17"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+                LinkedIn
+              </a>
+            </li>
+            <!-- // TODO: add resume PDF link:
+          <li>
+            <a href="resume.pdf" target="_blank" rel="noopener noreferrer">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+              R&#233;sum&#233; (PDF)
             </a>
-            <a
-              href="https://github.com/hornbuck/fire-sim"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-link"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
-                />
-              </svg>
-              Code
-            </a>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-card">
-          <div class="project-img">
-            <img
-              src="projects/ExerciseTracker.png"
-              alt="Workout Tracker screenshot"
-            />
-          </div>
-          <div class="project-num">03</div>
-          <h3 class="project-name">Workout<br />Tracker</h3>
-          <p class="project-desc">
-            Full-stack workout logger with a React frontend, Node/Express REST
-            API, and MongoDB backend. Structured around fast, consistent entry —
-            add, edit, and delete exercises with persistent data across
-            sessions. Deployed split across Vercel and Render.
-          </p>
-          <div class="project-stack">
-            <span class="stack-tag">React</span>
-            <span class="stack-tag">Node.js</span>
-            <span class="stack-tag">Express</span>
-            <span class="stack-tag">MongoDB</span>
-          </div>
-          <div class="project-links">
-            <a
-              href="https://exercise-tracker-dusky-gamma.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-link"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"
-                />
-              </svg>
-              Demo
-            </a>
-            <a
-              href="https://github.com/aidansoares23/exercise-tracker"
-              class="project-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
-                />
-              </svg>
-              Code
-            </a>
-          </div>
-        </div>
-        <!-- Project 4 -->
-        <div class="project-card">
-          <div class="project-img">
-            <img src="projects/Portfolio.png" alt="Portfolio screenshot" />
-          </div>
-          <div class="project-num">04</div>
-          <h3 class="project-name">This<br />Portfolio</h3>
-          <p class="project-desc">
-            Designed and built from scratch — no frameworks, no templates. The
-            constraint was intentional: own every pixel. Custom cursor,
-            typewriter animation with human-paced randomized delays, scroll
-            reveals, and a shimmer code card. Clean enough to be the first thing
-            I show.
-          </p>
-          <div class="project-stack">
-            <span class="stack-tag">HTML</span>
-            <span class="stack-tag">CSS</span>
-            <span class="stack-tag">JavaScript</span>
-            <span class="stack-tag">Vercel</span>
-          </div>
-          <div class="project-links">
-            <a
-              href="https://github.com/aidansoares23"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-link"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
-                />
-              </svg>
-              Code
-            </a>
-          </div>
-        </div>
+          </li> -->
+          </ul>
+        </section>
       </div>
-    </section>
+      <!-- /page-wrap -->
+    </main>
 
-    <!-- Experience (commented out for dev portfolio focus)
-    <section id="experience">
-      <div class="reveal">
-        <div class="section-label">Background</div>
-        <h2 class="section-title">Experience &<br /><em>Work</em></h2>
+    <footer class="site-footer" role="contentinfo">
+      <div class="page-wrap">
+        <p>&copy; 2026 Aidan Soares</p>
       </div>
-
-      <div class="timeline reveal">
-        <div class="timeline-item">
-          <div class="timeline-date">Aug 2022 — Present</div>
-          <div class="timeline-role">Fulfillment Expert</div>
-          <div class="timeline-company">Target · San Luis Obispo, CA</div>
-          <div class="timeline-desc">
-            Operate in a high-throughput environment with tight SLAs and little
-            room for error. Maintain a 99% packing/shipping accuracy rate by
-            following standardized workflows and using inventory systems
-            precisely. Consistently handle large item volume while balancing
-            speed, correctness, and customer impact.
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-date">Apr 2021 — Aug 2022</div>
-          <div class="timeline-role">
-            Wildland Fuel Reduction Crew Supervisor
-          </div>
-          <div class="timeline-company">
-            Santa Barbara County Fire Department · Lompoc, CA
-          </div>
-          <div class="timeline-desc">
-            Led a 20-person crew across fuel-reduction projects, coordinating
-            daily operations, logistics, and safety protocols. Maintained a
-            zero-incident record by enforcing high standards in high-risk
-            environments while still meeting regulatory and project deadlines.
-          </div>
-        </div>
-      </div>
-    </section>
-    -->
-
-    <!-- Contact -->
-    <section id="contact">
-      <div class="reveal">
-        <div class="section-label" style="justify-content: center">
-          Let's Connect
-        </div>
-        <h2 class="contact-big">Let's build<br /><em>together</em></h2>
-        <p class="contact-sub">
-          I'm finishing my Computer Science degree at Oregon State and looking
-          for a full-time software engineering role starting Summer 2026. If
-          you're hiring or just want to connect, feel free to reach out.
-        </p>
-        <a href="mailto:aidansoares.dev@gmail.com" class="contact-email"
-          >aidansoares.dev@gmail.com</a
-        >
-
-        <div class="social-links">
-          <a
-            href="https://github.com/aidansoares23"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-link"
-          >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
-              />
-            </svg>
-            GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/aidan-soares/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-link"
-          >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"
-              />
-              <rect x="2" y="9" width="4" height="12" />
-              <circle cx="4" cy="4" r="2" />
-            </svg>
-            LinkedIn
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <span>© 2026 Aidan Soares</span>
-      <span>Designed & built with care</span>
-      <span>Based in California</span>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
   </body>
 </html>
