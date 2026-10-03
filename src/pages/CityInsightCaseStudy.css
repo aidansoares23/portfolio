@@ -1,15 +1,31 @@
-/* One quiet row: name on the left, the way back on the right. */
+/* One quiet row that stays put, so "All work" is always a click away.
+   Same translucent ground as the homepage header, but it never hides. */
 .cs-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding-top: env(safe-area-inset-top, 0px);
+  background: rgb(247 244 239 / 0.92);
+  backdrop-filter: saturate(1.2) blur(8px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 300ms ease;
+}
+
+.cs-bar[data-scrolled='true'] {
+  border-bottom-color: rgb(29 30 26 / 0.07);
+}
+
+.cs-bar__inner {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding-block: calc(1.5rem + env(safe-area-inset-top, 0px)) 1.5rem;
+  height: 3.5rem;
 }
 
 .cs-bar__name {
   font-family: var(--font-serif);
-  font-size: var(--text-lg);
+  font-size: 1.125rem;
   font-weight: var(--display-weight);
   letter-spacing: var(--display-tracking);
   text-decoration: none;
@@ -29,7 +45,7 @@
 }
 
 .cs {
-  padding-top: clamp(1.5rem, 4vw, 3.5rem);
+  padding-top: clamp(2.5rem, 6vw, 5rem);
 }
 
 /* ---------- Intro ----------

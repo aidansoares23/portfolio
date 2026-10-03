@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { ArrowLeft } from 'lucide-react'
 import { cityInsight as project } from '../content/projects'
 import { profile } from '../content/profile'
@@ -13,20 +14,31 @@ import './CityInsightCaseStudy.css'
 // The City Insight case study: what it does, what I owned, and the decisions that keep its data coherent.
 export default function CityInsightCaseStudy() {
   const { caseStudy } = project
+  // The bar is always visible; its hairline only appears once the page has scrolled under it.
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 8)
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    return () => window.removeEventListener('scroll', update)
+  }, [])
 
   return (
     <>
       <a className="skip-link" href="#case-study">
         Skip to content
       </a>
-      <header className="cs-bar page" id="top">
-        <a className="cs-bar__name" href="/">
-          {profile.name}
-        </a>
-        <a className="cs-bar__back" href="/#work">
-          <ArrowLeft aria-hidden="true" size={17} strokeWidth={1.75} />
-          <span className="link">All work</span>
-        </a>
+      <header className="cs-bar" id="top" data-scrolled={scrolled}>
+        <div className="cs-bar__inner page">
+          <a className="cs-bar__name" href="/">
+            {profile.name}
+          </a>
+          <a className="cs-bar__back" href="/#work">
+            <ArrowLeft aria-hidden="true" size={17} strokeWidth={1.75} />
+            <span className="link">All work</span>
+          </a>
+        </div>
       </header>
 
       <main id="case-study">
