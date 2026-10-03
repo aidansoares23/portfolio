@@ -6,7 +6,6 @@ Personal portfolio site. Built with vanilla HTML, CSS, and JavaScript. Deployed 
 
 ```
 index.html
-main.js
 style.css
 favicon.svg
 assets/

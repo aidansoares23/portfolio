@@ -7,12 +7,12 @@
     <title>Aidan Soares — Software Engineer</title>
     <meta
       name="description"
-      content="Aidan Soares is a software engineer and CS senior at Oregon State University graduating June 2026. Former wildland fire crew supervisor."
+      content="Aidan Soares is a software engineer building web applications, APIs, and data-heavy systems. B.S. Computer Science, Oregon State University, 2026. Former wildland fire crew supervisor."
     />
     <meta property="og:title" content="Aidan Soares" />
     <meta
       property="og:description"
-      content="Software engineer. Former wildland fire crew supervisor. CS senior at Oregon State."
+      content="Software engineer building web applications, APIs, and data-heavy systems. Former wildland fire crew supervisor."
     />
     <meta property="og:type" content="website" />
     <!-- // TODO: og:image — add a 1200×630 social preview image and uncomment:
@@ -55,10 +55,14 @@
           <li><a href="#work">Work</a></li>
           <li><a href="#background">Background</a></li>
           <li><a href="#contact">Contact</a></li>
+          <!-- // TODO: résumé — no PDF exists in this repo yet, so this
+               item stays commented out (do not link href="#"). Once a PDF
+               is added at assets/resume.pdf, uncomment this item and the
+               matching .nav-resume rules held in style.css.
           <li class="nav-item-resume">
-            <!-- // TODO: replace href with path to your resume PDF -->
-            <a href="#" class="nav-resume">R&#233;sum&#233;</a>
+            <a href="assets/resume.pdf" class="nav-resume" target="_blank" rel="noopener noreferrer">R&#233;sum&#233;</a>
           </li>
+          -->
         </ul>
       </div>
     </nav>
@@ -74,15 +78,12 @@
           </p>
           <hr class="hero-divider" aria-hidden="true" />
           <p class="hero-intro">
-            Software engineer and CS senior at Oregon State, graduating June
-            2026 with a 3.88 GPA. Before this: a year and a half as a
+            I build web applications, APIs, and data-heavy systems. Before
+            this, I was a
             <span class="accent-word">wildland fire crew supervisor</span>
-            in backcountry terrain. The two are more related than they look.
+            in backcountry terrain.
           </p>
-          <p class="availability">
-            <span class="dot" aria-hidden="true"></span>
-            Open to full-time engineering roles
-          </p>
+          <p class="availability">Open to full-time engineering roles</p>
         </section>
 
         <!-- ── Work ─────────────────────────────────────────────── -->
@@ -92,10 +93,9 @@
 
           <div class="project-list">
             <!-- City Insight -->
-            <article class="project" data-reveal>
+            <article class="project">
               <header class="project-header">
                 <h3 class="project-title">
-                  <span class="project-num" aria-hidden="true">01</span>
                   <a
                     href="https://city-insight-client.vercel.app/"
                     target="_blank"
@@ -105,8 +105,12 @@
                   </a>
                 </h3>
                 <p class="project-tagline">
-                  A tool for comparing California cities across livability
-                  metrics.
+                  A city-comparison tool built around an AI agent that queries
+                  the underlying dataset directly.
+                </p>
+                <p class="project-meta">
+                  Jan&ndash;Mar 2026 &middot; 318 automated tests &middot;
+                  GitHub Actions CI &middot; Vercel + Render
                 </p>
               </header>
               <figure class="project-figure">
@@ -119,37 +123,32 @@
                 >
                   <img
                     src="assets/images/CityInsight.png"
-                    alt="City Insight dashboard showing a radar chart comparing multiple California cities across housing, transit, and walkability metrics"
-                    width="2880"
-                    height="1520"
+                    alt="City Insight marketing homepage, headlined 'Compare California Cities Using Real Data and Real Reviews,' with Safety, Rent + Cost, and Real Reviews feature highlights below"
+                    width="1920"
+                    height="1013"
                     loading="lazy"
                   />
                 </a>
               </figure>
               <div class="project-body">
                 <p>
-                  City Insight started with a question I kept asking: is there a
-                  tool that compares cities using both hard data and what
-                  residents actually think about living there? I could not find
-                  one that did both well, so I built it.
-                </p>
-                <p>
                   The interesting problem was not the data: it was the query
-                  interface. Most location-comparison tools force you to choose
-                  metrics from a predefined list, which means they answer the
-                  question the designer anticipated, not the one you actually
-                  have. I built an AI chat interface on top of the structured
-                  dataset so that natural-language questions resolve against the
-                  same data driving the radar charts and maps. The challenge was
-                  keeping every interface synchronized: a filter set via chat
-                  should immediately be reflected in every view at once.
+                  interface. Instead of forcing users to pick metrics from a
+                  predefined list, I built an agentic tool-use loop against
+                  the Anthropic SDK, giving the model five custom tools to
+                  query the dataset directly. Independent tool calls run in
+                  parallel, and user-supplied text is guarded against prompt
+                  injection. A filter set through the chat is reflected in
+                  every view at once, and prompt caching keeps cost and
+                  latency under control as conversations grow.
                 </p>
               </div>
               <footer class="project-footer">
                 <p class="project-stack">
-                  <code>React 19</code><code>Vite</code><code>Tailwind</code
-                  ><code>Leaflet</code><code>Recharts</code
-                  ><code>Google OAuth</code>
+                  React 19 &middot; Vite &middot; Tailwind &middot; Leaflet
+                  &middot; Recharts &middot; Google OAuth &middot; Node
+                  &middot; Express &middot; Firestore &middot; Anthropic SDK
+                  &middot; Vitest
                 </p>
                 <nav class="project-links" aria-label="City Insight links">
                   <a
@@ -198,10 +197,9 @@
             </article>
 
             <!-- Wildfire Command -->
-            <article class="project" data-reveal>
+            <article class="project">
               <header class="project-header">
                 <h3 class="project-title">
-                  <span class="project-num" aria-hidden="true">02</span>
                   <a
                     href="https://wildfire-command.com/"
                     target="_blank"
@@ -213,6 +211,9 @@
                 <p class="project-tagline">
                   A browser-based simulation game for managing wildfire
                   response.
+                </p>
+                <p class="project-meta">
+                  Sep 2024&ndash;Mar 2025 &middot; Vitest
                 </p>
               </header>
               <figure class="project-figure">
@@ -226,8 +227,8 @@
                   <img
                     src="assets/images/WildfireCommand.png"
                     alt="Wildfire Command gameplay showing a top-down terrain map with active fire spread and resource deployment controls"
-                    width="2880"
-                    height="1524"
+                    width="1920"
+                    height="1004"
                     loading="lazy"
                   />
                 </a>
@@ -257,8 +258,8 @@
               </div>
               <footer class="project-footer">
                 <p class="project-stack">
-                  <code>Phaser 3</code><code>Javascript</code
-                  ><code>Firebase</code><code>Webpack</code><code>Vitest</code>
+                  Phaser 3 &middot; JavaScript &middot; Firebase &middot;
+                  Webpack &middot; Vitest
                 </p>
                 <nav class="project-links" aria-label="Wildfire Command links">
                   <a
@@ -307,10 +308,9 @@
             </article>
 
             <!-- Exercise Tracker -->
-            <article class="project" data-reveal>
+            <article class="project project--secondary">
               <header class="project-header">
                 <h3 class="project-title">
-                  <span class="project-num" aria-hidden="true">03</span>
                   <a
                     href="https://exercise-tracker-dusky-gamma.vercel.app/"
                     target="_blank"
@@ -332,35 +332,26 @@
                   <img
                     src="assets/images/ExerciseTracker.png"
                     alt="Exercise Tracker interface showing a workout log with exercise name, sets, reps, and weight fields"
-                    width="2880"
-                    height="1520"
+                    width="1920"
+                    height="1005"
                     loading="lazy"
                   />
                 </a>
               </figure>
               <div class="project-body">
                 <p>
-                  Exercise Tracker is a workout logger: create, view, edit, and
-                  delete exercises with name, reps, weight, unit, and date. The
-                  goal was to build something complete and correct rather than
-                  clever, and to understand the full MERN stack end to end by
-                  building something I would actually use.
-                </p>
-                <p>
-                  The decision I spent the most time on was weight units. Rather
-                  than storing a normalized value and converting on display, I
-                  store the weight and unit as entered. This means the data
-                  model reflects what the user typed, there is no lossy
-                  conversion happening in the background, and the validation and
-                  edit logic has to be unit-aware throughout. That last
-                  constraint turned out to be the most interesting part of the
-                  project.
+                  Exercise Tracker is a workout logger built to understand
+                  the full MERN stack end to end: create, view, edit, and
+                  delete exercises with name, reps, weight, unit, and date.
+                  The one decision worth calling out is weight units. Rather
+                  than normalizing on save, I store the weight and unit as
+                  entered, which keeps the data model honest but makes
+                  validation and editing unit-aware throughout.
                 </p>
               </div>
               <footer class="project-footer">
                 <p class="project-stack">
-                  <code>React</code><code>Node.js</code><code>Express</code
-                  ><code>MongoDB</code>
+                  React &middot; Node.js &middot; Express &middot; MongoDB
                 </p>
                 <nav class="project-links" aria-label="Exercise Tracker links">
                   <a
@@ -413,7 +404,7 @@
         </section>
 
         <!-- ── Background ────────────────────────────────────────── -->
-        <section id="background" aria-label="Background" data-reveal>
+        <section id="background" aria-label="Background">
           <hr aria-hidden="true" />
           <h2 class="section-label">Background</h2>
           <div class="background-prose">
@@ -423,15 +414,11 @@
               coordinating prescribed burn operations and hazardous fuel
               reduction projects, managing crew safety on terrain where
               conditions change faster than plans do, and communicating with
-              incident command when the original plan needed revision. What the
-              job gave me was a specific interest in systems that need to be
-              legible under pressure: who has what information, how decisions
-              get made, what happens when the situation changes. That describes
-              most software worth building.
+              incident command when the original plan needed revision.
             </p>
             <p>
-              I enrolled at Oregon State in 2023 and graduate in June 2026 with
-              a 3.88 GPA.
+              I enrolled at Oregon State in 2023 and graduated in June 2026 with
+              a 3.89 GPA.
             </p>
           </div>
         </section>
@@ -441,12 +428,15 @@
           <hr aria-hidden="true" />
           <h2 class="section-label">Get in touch</h2>
           <p class="contact-intro">Email is the best way to reach me.</p>
+          <p class="contact-note">
+            Open to full-time roles, remote or on-site in the US.
+          </p>
           <ul class="contact-list" role="list">
             <li>
               <a href="mailto:aidansoares.dev@gmail.com">
                 <svg
-                  width="17"
-                  height="17"
+                  width="19"
+                  height="19"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -469,8 +459,8 @@
                 rel="noopener noreferrer"
               >
                 <svg
-                  width="17"
-                  height="17"
+                  width="19"
+                  height="19"
                   viewBox="0 0 16 16"
                   fill="currentColor"
                   aria-hidden="true"
@@ -491,8 +481,8 @@
                 rel="noopener noreferrer"
               >
                 <svg
-                  width="17"
-                  height="17"
+                  width="19"
+                  height="19"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   aria-hidden="true"
@@ -505,9 +495,9 @@
                 LinkedIn
               </a>
             </li>
-            <!-- // TODO: add resume PDF link:
+            <!-- // TODO: add resume PDF link (no PDF exists yet — do not link href="#"):
           <li>
-            <a href="resume.pdf" target="_blank" rel="noopener noreferrer">
+            <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
               R&#233;sum&#233; (PDF)
             </a>
@@ -523,7 +513,5 @@
         <p>&copy; 2026 Aidan Soares</p>
       </div>
     </footer>
-
-    <script src="main.js" defer></script>
   </body>
 </html>

@@ -26,12 +26,13 @@
   --color-paper: #f4f1ea; /* warm cream */
   --color-ink: #1c1917; /* near-black, warm */
   --color-ink-mid: #78716c; /* secondary text */
-  --color-ink-faint: #b8b0a6; /* captions, rules, disabled */
+  --color-ink-faint: #6e6862; /* quiet text that still needs to clear 4.5:1 (e.g. footer) */
   --color-rule: #bea470; /* thin dividers */
   --color-accent: #7c4a2e; /* sienna — fire/earth, ~7.5:1 on paper */
 
   /* Type — one family, optical sizing handles the rest */
   --font: "Newsreader", Georgia, serif;
+  --text-micro: 0.6875rem; /* 11px — metadata labels */
   --text-sm: 0.8125rem; /* 13px */
   --text-base: 1.0625rem; /* 17px — slightly larger than web default */
   --text-lg: 1.25rem; /* 20px */
@@ -40,11 +41,14 @@
 
   /* Leading */
   --lead-tight: 1.15;
+  --lead-body: 1.6; /* multi-paragraph body copy */
   --lead-base: 1.72;
-  --lead-loose: 1.82;
+  --lead-loose: 1.82; /* hero intro only — large-type display leading */
 
-  /* Spacing — loose major third scale */
+  /* Spacing — loose major third scale, with one finer step for compact UI */
+  --sp-0: 0.375rem;
   --sp-1: 0.5rem;
+  --sp-1-5: 0.75rem;
   --sp-2: 1rem;
   --sp-3: 1.5rem;
   --sp-4: 2.5rem;
@@ -52,10 +56,13 @@
   --sp-6: 6rem;
   --sp-7: 8rem;
 
+  /* Metadata text — warm, on-palette (not cool gray) */
+  --color-chip-text: #5b4a3a;
+
   /* Layout */
   --measure: 65ch; /* comfortable reading line length */
   --side: clamp(1.25rem, 5vw, 3.5rem); /* responsive side padding */
-  --page: 1100px; /* max content width */
+  --page: 960px; /* max content width — narrowed from 1100px to shrink the dead space right of --measure text, without cramping full-width images */
 }
 
 /* =============================================================
@@ -170,11 +177,6 @@ a:hover {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-rule);
-  transition: transform 0.28s ease;
-}
-
-.site-nav.nav--hidden {
-  transform: translateY(-100%);
 }
 
 .nav-inner {
@@ -215,16 +217,24 @@ a:hover {
   text-decoration: none;
 }
 
+/* .nav-resume — dormant. No résumé PDF exists yet, so the matching nav
+   item is commented out in index.html. Uncomment both when a PDF is
+   added at assets/resume.pdf:
+
 .nav-resume {
-  color: var(--color-ink) !important;
+  color: var(--color-ink);
   border: 1px solid var(--color-rule);
-  padding: 4px 11px;
-  font-size: 0.75rem !important;
-  transition: border-color 0.12s !important;
+  padding: 0.25rem var(--sp-1-5);
+  font-size: 0.75rem;
+  transition: border-color 0.12s;
 }
 .nav-resume:hover {
-  border-color: var(--color-ink-mid) !important;
+  border-color: var(--color-ink-mid);
 }
+
+Also re-add, inside @media (max-width: 640px):
+.nav-item-resume { display: none; }
+*/
 
 /* =============================================================
    PAGE WRAPPER
@@ -257,14 +267,11 @@ h1 {
   margin-bottom: var(--sp-3);
 }
 
-/* Rule separating header from prose */
+/* Rule separating header from prose — full container width, matching every other <hr> on the page */
 .hero-divider {
   border: none;
   border-top: 1px solid var(--color-rule);
   margin: 0 0 var(--sp-4);
-  /* Intentionally narrower than full measure to feel editorial */
-  max-width: var(--measure);
-  transform-origin: left center;
 }
 
 /* Opening prose — the real hook */
@@ -282,88 +289,10 @@ h1 {
   font-style: italic;
 }
 
-/* Availability — bordered status badge */
+/* Availability — plain text, no badge */
 .availability {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
   font-size: var(--text-sm);
   color: var(--color-ink-mid);
-  border: 1px solid var(--color-rule);
-  padding: 6px 12px;
-}
-
-.dot {
-  position: relative;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #22c55e;
-  flex-shrink: 0;
-  animation: blink 2.5s ease-in-out infinite;
-}
-
-/* Ripple ring — rendered always, animated only when motion is ok */
-.dot::after {
-  content: "";
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  border: 1.5px solid #22c55e;
-  opacity: 0;
-  pointer-events: none;
-}
-
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.3;
-  }
-}
-
-@keyframes heroEnter {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes ruleExpand {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
-}
-
-@keyframes ripple {
-  from {
-    transform: scale(1);
-    opacity: 0.75;
-  }
-  to {
-    transform: scale(2.8);
-    opacity: 0;
-  }
-}
-
-@keyframes letterIn {
-  from {
-    opacity: 0;
-    transform: translateY(7px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* =============================================================
@@ -388,70 +317,6 @@ section > hr {
 }
 
 /* =============================================================
-   SCROLL REVEAL
-============================================================= */
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(22px);
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
-}
-
-[data-reveal][data-revealed] {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Hero entrance — staggered, only when motion is welcome */
-@media (prefers-reduced-motion: no-preference) {
-  /* h1 is overridden by JS letter animation; this is the no-JS fallback */
-  .opening h1 {
-    animation: heroEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.05s backwards;
-  }
-  .hero-meta {
-    animation: heroEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.22s backwards;
-  }
-  .hero-divider {
-    animation: ruleExpand 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.4s backwards;
-  }
-  .hero-intro {
-    animation: heroEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.6s backwards;
-  }
-  .availability {
-    animation: heroEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.78s backwards;
-  }
-  .dot::after {
-    animation: ripple 2.5s ease-out 1.3s infinite;
-  }
-
-  /* Per-letter cascade — JS injects .h1-letter spans into the h1 */
-  .opening h1 .h1-letter {
-    display: inline-block;
-    opacity: 0;
-    animation: letterIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-  .opening h1 .h1-space {
-    display: inline;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  [data-reveal] {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-  .project-figure img { transition: none; }
-  .dot {
-    animation: none;
-  }
-  .dot::after {
-    display: none;
-  }
-}
-
-/* =============================================================
    PROJECTS
 ============================================================= */
 .project-list {
@@ -468,17 +333,6 @@ section > hr {
   font-size: var(--text-xl);
   font-weight: 600;
   margin-bottom: var(--sp-1);
-  display: flex;
-  align-items: baseline;
-  gap: 0.55em;
-}
-
-.project-num {
-  font-size: var(--text-sm);
-  font-weight: 400;
-  color: var(--color-ink-faint);
-  letter-spacing: 0.05em;
-  flex-shrink: 0;
 }
 
 .project-title a {
@@ -498,48 +352,32 @@ section > hr {
   max-width: var(--measure);
 }
 
+/* Metadata — dates and engineering signals, same monospace system as tech chips */
+.project-meta {
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
+  font-size: var(--text-micro);
+  color: var(--color-chip-text);
+  letter-spacing: 0.015em;
+  margin-top: var(--sp-1);
+}
+
 .project-figure {
   margin: 0 0 var(--sp-3);
-  overflow: hidden;
 }
 
 .project-figure a {
-  position: relative;
   display: block;
-}
-
-.project-figure a::after {
-  content: 'View project \2197';  /* ↗ */
-  position: absolute;
-  bottom: 14px;
-  left: 14px;
-  font-family: var(--font);
-  font-style: italic;
-  font-size: var(--text-sm);
-  color: var(--color-paper);
-  background: rgba(28, 25, 23, 0.75);
-  padding: 5px 12px;
-  letter-spacing: 0.01em;
-  opacity: 0;
-  transform: translateY(5px);
-  transition: opacity 0.22s ease, transform 0.22s ease;
-  pointer-events: none;
-}
-
-.project-figure a:hover::after {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .project-figure img {
   width: 100%;
   height: auto;
   border: 1px solid var(--color-rule);
-  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.project-figure a:hover img {
-  transform: scale(1.03);
+/* Exercise Tracker — visually secondary: smaller screenshot */
+.project--secondary .project-figure {
+  max-width: 640px;
 }
 
 .project-body {
@@ -548,7 +386,11 @@ section > hr {
 }
 
 .project-body p {
-  line-height: var(--lead-loose);
+  line-height: var(--lead-body);
+}
+
+.project-body p + p {
+  margin-top: var(--sp-3);
 }
 
 .project-footer {
@@ -561,20 +403,11 @@ section > hr {
   border-top: 1px solid var(--color-rule);
 }
 
-/* Tech stack — monospace code tags contrast with the serif body */
+/* Tech stack — plain monospace line, no chip boxes */
 .project-stack {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 5px;
-}
-
-.project-stack code {
   font-family: "SF Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
-  font-size: 0.6875rem;
-  color: var(--color-ink-mid);
-  background: rgba(28, 25, 23, 0.055);
-  padding: 2px 7px;
+  font-size: var(--text-micro);
+  color: var(--color-chip-text);
   letter-spacing: 0.015em;
 }
 
@@ -588,13 +421,13 @@ section > hr {
 .project-links a {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: var(--sp-0);
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--color-ink);
   text-decoration: none;
   border: 1px solid var(--color-rule);
-  padding: 5px 11px;
+  padding: var(--sp-0) var(--sp-1-5);
   transition:
     border-color 0.15s,
     color 0.15s;
@@ -616,7 +449,7 @@ section > hr {
 }
 
 .background-prose p {
-  line-height: var(--lead-loose);
+  line-height: var(--lead-body);
 }
 
 /* =============================================================
@@ -624,6 +457,13 @@ section > hr {
 ============================================================= */
 .contact-intro {
   color: var(--color-ink);
+  margin-bottom: var(--sp-1);
+  max-width: var(--measure);
+}
+
+.contact-note {
+  color: var(--color-ink-mid);
+  font-size: var(--text-sm);
   margin-bottom: var(--sp-3);
   max-width: var(--measure);
 }
@@ -638,7 +478,7 @@ section > hr {
 .contact-list a {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--sp-1-5);
   font-size: var(--text-lg);
   color: var(--color-ink);
   text-decoration: none;
@@ -662,6 +502,8 @@ section > hr {
 }
 
 .contact-list svg {
+  position: relative;
+  top: -1px;
   color: var(--color-ink-mid);
   transition: color 0.18s;
 }
@@ -690,10 +532,6 @@ section > hr {
    MOBILE
 ============================================================= */
 @media (max-width: 640px) {
-  .nav-item-resume {
-    display: none;
-  }
-
   .opening {
     padding: var(--sp-6) 0 var(--sp-5);
   }
@@ -711,6 +549,12 @@ section > hr {
     font-size: var(--text-lg);
     margin-bottom: var(--sp-3);
   }
+
+  /* Tap targets — compact desktop buttons/links need more vertical room on touch */
+  .project-links a,
+  .contact-list a {
+    min-height: 44px;
+  }
 }
 
 /* =============================================================
@@ -718,14 +562,8 @@ section > hr {
 ============================================================= */
 @media print {
   .site-nav,
-  .skip-link,
-  .dot {
+  .skip-link {
     display: none;
-  }
-
-  [data-reveal] {
-    opacity: 1;
-    transform: none;
   }
 
   body {
@@ -769,9 +607,5 @@ section > hr {
   }
   .site-footer {
     border-top: 0.5pt solid #ccc;
-  }
-
-  .availability {
-    border: 0.5pt solid #ccc;
   }
 }
