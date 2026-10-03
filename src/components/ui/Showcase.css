@@ -1,0 +1,74 @@
+.showcase {
+  --showcase-pad: clamp(0.75rem, 2.7vw, 2.25rem);
+}
+
+/* A plain stone mat behind each screenshot: enough to frame the work, nothing more. */
+.showcase__panel {
+  position: relative;
+  padding: var(--showcase-pad);
+  border-radius: var(--radius-md);
+  background: var(--stone-200);
+}
+
+/* On the client-work band (already stone-100), use the page tone so the mat still separates. */
+.showcase__panel--paper {
+  background: var(--stone-50);
+}
+
+.showcase__stage {
+  position: relative;
+}
+
+.showcase__panel .shot--bare .media,
+.showcase__panel .shot--browser {
+  box-shadow: 0 0 0 1px rgb(29 30 26 / 0.08);
+}
+
+.showcase__detail {
+  position: absolute;
+  right: -3%;
+  bottom: -7%;
+  width: 32%;
+}
+
+.showcase__detail .media {
+  border-radius: var(--radius-md);
+  box-shadow:
+    0 0 0 1px rgb(29 30 26 / 0.08),
+    0 16px 32px -16px rgb(20 24 18 / 0.4);
+}
+
+/* Reveal: a plain fade and short rise, like the rest of the page. */
+.js .showcase__panel--reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity var(--duration) var(--ease-out),
+    transform var(--duration) var(--ease-out);
+}
+
+.js .showcase__panel--reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .showcase__panel--reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.showcase__caption {
+  margin-top: 0.9rem;
+  font-size: var(--text-sm);
+  color: var(--ink-subtle);
+}
+
+@media (max-width: 620px) {
+  .showcase__detail {
+    right: -2%;
+    bottom: -5%;
+    width: 40%;
+  }
+}

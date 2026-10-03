@@ -1,0 +1,71 @@
+/* Desktop: two pieces overlap the corners of the main screenshot on a 16:10 stage. */
+.collage__stage {
+  position: relative;
+  /* Just tall enough for the main screenshot plus its title bar. */
+  aspect-ratio: 16 / 9.2;
+}
+
+.collage__main {
+  position: absolute;
+  top: 2%;
+  left: 12%;
+  width: 76%;
+}
+
+.collage__piece {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  border-radius: var(--radius-md);
+  transition: transform 400ms var(--ease-out);
+}
+
+.collage__piece .media {
+  border-radius: var(--radius-md);
+  box-shadow:
+    0 0 0 1px rgb(29 30 26 / 0.08),
+    0 16px 32px -16px rgb(20 24 18 / 0.4);
+}
+
+.collage__piece--radar {
+  top: 14%;
+  left: 0;
+  width: 26%;
+}
+
+.collage__piece--card {
+  right: 0;
+  bottom: 4%;
+  width: 28%;
+}
+
+/* A small lift, so it's clear the pieces are links. */
+.collage__piece:hover,
+.collage__piece:focus-visible {
+  transform: translateY(-4px);
+}
+
+.collage__piece:focus-visible {
+  outline-offset: 4px;
+}
+
+/* Phones: main screenshot, then the two pieces side by side. */
+@media (max-width: 700px) {
+  .collage__stage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    aspect-ratio: auto;
+  }
+
+  .collage__main,
+  .collage__piece {
+    position: static;
+    width: auto;
+  }
+
+  .collage__main {
+    grid-column: 1 / -1;
+    margin-bottom: 0.25rem;
+  }
+}

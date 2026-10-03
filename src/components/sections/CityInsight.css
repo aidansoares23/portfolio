@@ -1,0 +1,92 @@
+.ci {
+  padding-top: clamp(4rem, 8vw, 7rem);
+}
+
+/* ---------- Intro ---------- */
+
+.ci-intro {
+  row-gap: clamp(1.25rem, 2.5vw, 2rem);
+  /* Copy and facts both start right under the title, so there's no dead band between them. */
+  align-items: start;
+}
+
+.ci-intro__heading {
+  grid-column: 1 / -1;
+}
+
+.ci-intro__title {
+  margin-top: 1rem;
+  font-size: var(--display-md);
+  letter-spacing: var(--title-tracking);
+}
+
+.ci-intro__copy {
+  grid-column: 1 / 7;
+  display: grid;
+  gap: 1rem;
+}
+
+.ci-intro__links {
+  display: grid;
+  gap: 0.25rem;
+  margin-top: 1.25rem;
+}
+
+.ci-intro__summary {
+  font-size: var(--text-lg);
+  line-height: 1.45;
+  max-width: 30rem;
+}
+
+/* Wide enough that the stack's four logos sit on one line. */
+.ci-intro__aside {
+  grid-column: 8 / -1;
+}
+
+.ci-intro__aside .detail-list div {
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+}
+
+@media (max-width: 960px) {
+  .ci-intro__copy,
+  .ci-intro__aside {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- Lead screenshot: deliberately wider than the page grid ---------- */
+
+.ci-lead {
+  /* Wider than the page, but the panel (16:10 image + 2rem title bar + padding) never exceeds 88% of the viewport height. */
+  width: min(
+    100% - 2 * var(--gutter),
+    1480px,
+    (88svh - 2rem - 2 * var(--showcase-pad)) * 1.6 + 2 * var(--showcase-pad)
+  );
+  margin: clamp(2rem, 4vw, 3rem) auto 0;
+}
+
+/* Chapter visuals sit on a lighter, tighter panel than the lead image. */
+.ci-showcase {
+  --showcase-pad: clamp(0.75rem, 2vw, 1.75rem);
+}
+
+/* ---------- Homepage: source links ---------- */
+
+.ci-intro__source {
+  align-items: center;
+  column-gap: 1.25rem;
+  color: var(--ink-muted);
+}
+
+.ci-intro__source .arrow-link {
+  font-weight: 400;
+}
+
+.ci-intro__source-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--label-tracking);
+  text-transform: var(--label-transform);
+  color: var(--ink-subtle);
+}

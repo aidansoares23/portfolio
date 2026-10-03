@@ -1,0 +1,53 @@
+:root {
+  /* Color */
+  --stone-50: #f7f4ef;
+  --stone-100: #efebe4;
+  --stone-200: #e4ded4;
+  --stone-300: #d2cabd;
+  --ink: #1d1e1a;
+  --ink-muted: #55564f;
+  --ink-subtle: #65655d;
+  --forest: #34432f;
+  --forest-deep: #263222;
+
+  /* Type */
+  --font-serif: 'Gambetta', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-sans: 'General Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-label: var(--font-sans);
+
+  /* Display treatment (Gambetta). */
+  --display-weight: 500;
+  --display-tracking: -0.02em;
+  --title-tracking: -0.03em;
+  --hero-tracking: -0.04em;
+  --hero-leading: 0.9;
+  --label-tracking: 0.14em;
+  --label-transform: uppercase;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --display-sm: clamp(1.75rem, 1.35rem + 1.3vw, 2.5rem);
+  --display-project: clamp(2.25rem, 1.6rem + 2vw, 3.25rem);
+  --display-md: clamp(2.75rem, 1.8rem + 3.4vw, 5rem);
+  --display-xl: clamp(3.5rem, 0.9rem + 9vw, 9.5rem);
+
+  --measure: 36rem;
+
+  /* Layout */
+  --page-max: 1240px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  /* Distance from viewport edge to content edge; used by layouts that bleed. */
+  --edge: max(var(--gutter), calc((100vw - var(--page-max)) / 2));
+  --section-space: clamp(6rem, 4rem + 7vw, 11rem);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  /* A touch of overshoot for small interactive movements (icons, arrows). */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration: 800ms;
+}

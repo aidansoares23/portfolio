@@ -1,0 +1,89 @@
+.wf {
+  display: grid;
+  /* Desktop: screenshot on the left, heading then details on the right. */
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  grid-template-areas:
+    'label label'
+    'media head'
+    'media body';
+  grid-template-rows: auto auto 1fr;
+  column-gap: clamp(2rem, 5vw, 4.5rem);
+  padding-top: var(--section-space);
+}
+
+.wf__label {
+  grid-area: label;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.wf__head {
+  grid-area: head;
+  display: grid;
+  gap: 1rem;
+}
+
+.wf__media {
+  grid-area: media;
+  align-self: start;
+}
+
+.wf__body {
+  grid-area: body;
+  display: grid;
+  align-content: start;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.wf__title {
+  font-size: var(--display-project);
+  line-height: 1.05;
+}
+
+.wf__summary {
+  font-size: var(--text-lg);
+  line-height: 1.45;
+}
+
+/* Phones and tablets: label, heading, screenshot, then details. */
+@media (max-width: 960px) {
+  .wf {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'label' 'head' 'media' 'body';
+    grid-template-rows: auto;
+  }
+
+  .wf__media {
+    margin-top: 2rem;
+  }
+
+  .wf__body {
+    margin-top: 2rem;
+  }
+}
+
+/* The game is already busy; a slimmer mat keeps it large. */
+.wf__media .showcase {
+  --showcase-pad: clamp(0.5rem, 1.75vw, 1.35rem);
+}
+
+.wf__contribution {
+  padding-left: 1rem;
+  border-left: 2px solid var(--forest);
+}
+
+.wf__contribution-label {
+  margin-bottom: 0.4rem;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--label-tracking);
+  text-transform: var(--label-transform);
+  color: var(--forest);
+}
+
+.wf__stack {
+  gap: 0.5rem 1.5rem;
+  padding-block: 0.9rem;
+  border-block: 1px solid var(--stone-300);
+  font-size: var(--text-sm);
+}
