@@ -52,7 +52,6 @@
   color: var(--ink);
 }
 
-/* Underline slides in from the left on hover, and stays under the current section. */
 .site-header__nav a::after {
   content: '';
   position: absolute;

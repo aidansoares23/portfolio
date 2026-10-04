@@ -1,8 +1,5 @@
 import { responsive } from "./image";
 
-// Project content. Components read from here; edit copy and swap screenshots without touching layout.
-// Screenshot slots without a `src` render a labelled placeholder.
-
 const cityInsightLinks = {
   live: "https://city-insight-client.vercel.app/",
   methodology: "https://city-insight-client.vercel.app/methodology",
@@ -14,15 +11,12 @@ export const cityInsight = {
   id: "city-insight",
   label: "Featured project",
   title: "City Insight",
-  // The homepage keeps to the product, ownership, a few facts, and the links.
-  // Everything else lives on the case study page (/city-insight/).
   summary:
     "A web application for exploring and comparing 107 California cities using public data and reviews.",
   ownership:
     "I built it as a solo capstone at Oregon State, including the React interface, Express API, data imports, and an assistant for querying the city dataset.",
   facts: [
     { label: "Stack", tech: ["React", "Node.js", "Express", "Firestore"] },
-    // Verified by running both suites: 211 server tests (node:test, run in CI) and 107 client tests (Vitest, not in CI).
     { label: "Tests", value: "211 server tests in CI · 107 client tests" },
   ],
   links: [
@@ -36,7 +30,6 @@ export const cityInsight = {
     alt: "City Insight’s home page: “Compare California Cities Using Real Data and Real Reviews”, surrounded by floating city name pins",
     url: "city-insight-client.vercel.app",
   },
-  // Pieces layered around the lead screenshot. Each links to that part of the live app.
   collage: [
     {
       id: "radar",
@@ -60,7 +53,6 @@ export const cityInsight = {
     },
   ],
   leadCaption: "Home page, city comparison, and a city card.",
-  // Case study page (/city-insight/). Claims checked against server 6b9df11 and client c81aede.
   caseStudy: {
     description: "A web application for researching and comparing California cities.",
     overview:
@@ -83,7 +75,6 @@ export const cityInsight = {
       {
         id: "data",
         title: "Bringing the data together",
-        // Field ownership: OWNERS map and pickOwnedFields in src/utils/cityMetrics.js.
         paragraphs: [
           "The application combines Census population and rent estimates, FBI crime data, and OpenAQ air-quality readings. I kept public metrics, review aggregates, and generated summaries separate in the data model, so each could be updated through its own workflow.",
           "Each data import writes only the metric fields assigned to it. Refreshing rent data, for example, leaves crime and air-quality fields untouched. Import updates also record source information and snapshots of previous and new values, making changes easier to inspect.",
@@ -94,7 +85,6 @@ export const cityInsight = {
       {
         id: "reviews",
         title: "Keeping reviews and scores in sync",
-        // Transaction, deltas, and cache invalidation: src/services/reviewService.js; IDs: makeReviewId in src/lib/reviews.js.
         paragraphs: [
           "Changing a review also changes a city’s rating averages and livability score. I handled those updates in a single Firestore transaction, so the review and its aggregate scores commit together.",
           "The server stores running rating totals and applies the difference when a review is edited or deleted. That avoids reading every review again to calculate the new averages. Each user–city pair also maps to one review record, so another submission updates the existing review.",
@@ -105,7 +95,6 @@ export const cityInsight = {
       {
         id: "assistant",
         title: "An assistant that queries the application",
-        // Tools: src/lib/aiTools.js; pre-ranking, loop cap, and logging: src/controllers/aiController.js.
         paragraphs: [
           "Visitors can ask questions such as “Which cities have median rent under $2,000 and a safety score above 8?”",
           "I connected Claude to five read-only tools for looking up cities, retrieving review data, filtering, ranking, and comparing. These tools query the same underlying dataset used by the rest of the application.",
@@ -122,7 +111,6 @@ export const cityInsight = {
       {
         id: "verification",
         title: "Checking the behavior",
-        // Verified by running both suites. Only the server suite runs in GitHub Actions (.github/workflows/ci.yml).
         paragraphs: [
           "I separated HTTP request handling, database operations, and calculation logic so they could be tested independently. The server verifies Google sign-in and checks the session before protected actions.",
           "The project has 211 server tests covering areas such as scoring, validation, authentication, and city queries. They run in GitHub Actions on pushes and pull requests to main. Another 107 client tests cover ratings, formatting, date handling, input sanitization, and safe redirects.",
@@ -130,7 +118,6 @@ export const cityInsight = {
         ],
       },
     ],
-    // The live dataset includes generated seed reviews (src/scripts/lib/seedUtils.js).
     demoNote: "The live application includes sample reviews to demonstrate the review and scoring features.",
   },
 };
@@ -141,8 +128,6 @@ export const wildfireCommand = {
   title: "Wildfire Command",
   summary: "A browser-based wildfire simulation game, built with a small team.",
   description: "Players use crews and aircraft to contain fires that spread with wind, weather, and terrain.",
-  // From Aidan's commits across all branches of hornbuck/fire-sim (FireSpread.js, Weather.js, UIScene.js,
-  // MapScene.js, DeploymentClickEvents.js).
   contribution:
     "I built the fire-spread and weather systems, including the simulation clock and how crews and aircraft suppress the fire. I also contributed to scoring, the win condition, and the interface.",
   stack: ["JavaScript", "Phaser 3", "Firebase"],

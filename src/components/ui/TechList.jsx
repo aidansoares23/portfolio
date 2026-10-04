@@ -1,6 +1,5 @@
 import { techLogos } from '../../content/logos'
 
-// A row of technologies, each with its official logo.
 export default function TechList({ items, className = '' }) {
   return (
     <ul className={`tech-list ${className}`}>

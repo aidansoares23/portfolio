@@ -1,6 +1,5 @@
 .wf {
   display: grid;
-  /* Desktop: screenshot on the left, heading then details on the right. */
   grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
   grid-template-areas:
     'label label'
@@ -45,7 +44,6 @@
   line-height: 1.45;
 }
 
-/* Phones and tablets: label, heading, screenshot, then details. */
 @media (max-width: 960px) {
   .wf {
     grid-template-columns: minmax(0, 1fr);

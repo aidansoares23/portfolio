@@ -3,8 +3,6 @@ import Media from '../ui/Media'
 import Screenshot from '../ui/Screenshot'
 import './CityInsightCollage.css'
 
-// The City Insight lead: the home page with real pieces of the app layered around it.
-// Each piece links to that part of the live app.
 export default function CityInsightCollage({ image, pieces, caption, className = '' }) {
   const [ref, inView] = useInView({ rootMargin: '0px 0px -12% 0px' })
 

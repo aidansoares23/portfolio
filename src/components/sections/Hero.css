@@ -43,11 +43,9 @@
   height: 100%;
   border-radius: 0;
   object-position: 52% 55%;
-  /* The fog "clears" as the page loads. */
   animation: hero-clear 2400ms var(--ease-out) both;
 }
 
-/* A faint warm wash ties the photo's greens and greys to the stone ground. */
 .hero__visual::before {
   content: '';
   position: absolute;

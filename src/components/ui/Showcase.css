@@ -2,7 +2,6 @@
   --showcase-pad: clamp(0.75rem, 2.7vw, 2.25rem);
 }
 
-/* A plain stone mat behind each screenshot: enough to frame the work, nothing more. */
 .showcase__panel {
   position: relative;
   padding: var(--showcase-pad);
@@ -38,7 +37,6 @@
     0 16px 32px -16px rgb(20 24 18 / 0.4);
 }
 
-/* Reveal: a plain fade and short rise, like the rest of the page. */
 .js .showcase__panel--reveal {
   opacity: 0;
   transform: translateY(14px);

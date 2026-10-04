@@ -1,5 +1,3 @@
-// Everything personal lives here, so updating details never means touching components.
-
 export const profile = {
   name: "Aidan Soares",
   role: "Software Engineer",
@@ -18,7 +16,6 @@ export const profile = {
   },
 };
 
-// About section. The lede is set in the serif, so keep it to one short sentence.
 export const about = {
   lede: "I’m Aidan, a software engineer based on California’s Central Coast.",
   body: [

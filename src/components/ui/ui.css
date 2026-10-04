@@ -172,7 +172,6 @@
   height: 1rem;
 }
 
-/* Pixel-art icons keep square pixels instead of blurring. */
 .tech-list__logo--pixel {
   image-rendering: pixelated;
 }

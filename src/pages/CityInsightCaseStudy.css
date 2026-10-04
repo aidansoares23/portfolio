@@ -48,9 +48,7 @@
   padding-top: clamp(2.5rem, 6vw, 5rem);
 }
 
-/* ---------- Intro ----------
-   Desktop: title with its one-line description beside it, then the overview on the
-   left and a compact column of links and stack on the right. */
+/* ---------- Intro ---------- */
 
 .cs-intro {
   row-gap: clamp(1.5rem, 3vw, 2.5rem);
@@ -160,7 +158,6 @@
   max-width: var(--measure);
 }
 
-/* A section with a screenshot pairs it beside the text. */
 .cs-section:has(.cs-section__figure) .cs-section__text {
   grid-column: 1;
 }

@@ -56,12 +56,10 @@
 /* The photograph rises out of the page: its top edge dissolves into the stone ground. */
 .contact__photo {
   margin-top: clamp(2rem, 4vw, 3rem);
-  /* A short closing band: about a third to a half of a desktop screen. */
   aspect-ratio: 16 / 5;
   max-height: 50svh;
   border-radius: 0;
   object-position: center 45%;
-  /* A short feather, so the photo softens into the page without blurring the boundary. */
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%);
   mask-image: linear-gradient(to bottom, transparent 0%, #000 22%);
 }
@@ -90,7 +88,6 @@
   overflow: hidden;
 }
 
-/* The photo starts slightly hazy and clears once the visitor reaches the very bottom. */
 .contact__photo {
   filter: brightness(1.08) saturate(0.7) contrast(0.88) blur(1.5px);
   transition: filter 2800ms var(--ease-out);
@@ -166,7 +163,6 @@
   width: clamp(5.5rem, 12vw, 10rem);
   aspect-ratio: 529 / 635;
   transform: translateY(105%);
-  /* A slow, even rise: no bounce. */
   transition: transform 1800ms cubic-bezier(0.22, 0.61, 0.36, 1) 600ms;
   pointer-events: none;
   /* Pull the photo's warm, bright tones toward the misty scene, and let the cut branch and feet

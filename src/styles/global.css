@@ -130,7 +130,6 @@ a {
 
 /* ---------- Links ---------- */
 
-/* A faint resting underline; on hover a solid one draws in from the left. */
 .link {
   text-decoration: none;
   /* Measure the underline from the text, not from any padding added for tap targets. */

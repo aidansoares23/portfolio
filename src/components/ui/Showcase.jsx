@@ -3,8 +3,6 @@ import Media from './Media'
 import Screenshot from './Screenshot'
 import './Showcase.css'
 
-// Presents a screenshot like a product shot: set on a tinted backdrop, optionally
-// with a cropped detail overlapping its corner, and an optional caption underneath.
 // tone: "stone" (default) or "paper" (for use on the stone-100 band).
 export default function Showcase({
   image,

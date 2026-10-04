@@ -7,7 +7,6 @@ import CityInsightCollage from './CityInsightCollage'
 import SectionLabel from '../ui/SectionLabel'
 import './CityInsight.css'
 
-// The homepage summary. The full engineering story is on the case study page.
 export default function CityInsight() {
   const primaryLinks = project.links.filter((link) => link.kind !== 'source')
   const sourceLinks = project.links.filter((link) => link.kind === 'source')

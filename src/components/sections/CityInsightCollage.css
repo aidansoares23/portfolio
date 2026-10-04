@@ -39,7 +39,6 @@
   width: 28%;
 }
 
-/* A small lift, so it's clear the pieces are links. */
 .collage__piece:hover,
 .collage__piece:focus-visible {
   transform: translateY(-4px);
@@ -49,7 +48,6 @@
   outline-offset: 4px;
 }
 
-/* Phones: main screenshot, then the two pieces side by side. */
 @media (max-width: 700px) {
   .collage__stage {
     display: grid;

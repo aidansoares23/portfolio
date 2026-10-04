@@ -87,7 +87,6 @@ export default function About() {
         </SectionLabel>
       </Reveal>
 
-      {/* Sits in the empty column left of the text; the text column itself doesn't move. */}
       <Reveal className="about__portrait" delay={40}>
         <NatureRing />
         {portraitImage.src ? (

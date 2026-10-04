@@ -11,7 +11,6 @@ import Contact from '../components/sections/Contact'
 import '../components/sections/CityInsight.css'
 import './CityInsightCaseStudy.css'
 
-// The City Insight case study: what it does, what I owned, and the decisions that keep its data coherent.
 export default function CityInsightCaseStudy() {
   const { caseStudy } = project
   // The bar is always visible; its hairline only appears once the page has scrolled under it.
