@@ -16,7 +16,6 @@ export const portraitImage = {
 }
 
 // Two same-size layers made by `npm run bear`: the body, and the raised paw that rotates at the wrist.
-// TODO: stand-in photo; replace with an image you have the rights to before publishing.
 export const bearImage = {
   body: responsive('bear-body', [260, 520]),
   paw: responsive('bear-paw', [260, 520]),
