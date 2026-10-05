@@ -207,6 +207,69 @@
   background: var(--stone-100);
 }
 
+/* With code beside it, the band spans the page so the excerpt has room. */
+.cs-section--anchor.cs-section--code {
+  width: 100%;
+}
+
+.cs-code {
+  min-width: 0;
+  border-radius: var(--radius-md);
+  background: var(--stone-50);
+  box-shadow: 0 0 0 1px rgb(29 30 26 / 0.08);
+}
+
+.cs-code__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--stone-200);
+  font-size: var(--text-sm);
+}
+
+.cs-code__file {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+}
+
+.cs-code__source {
+  font-weight: 500;
+}
+
+.cs-code__body {
+  overflow-x: auto;
+  margin: 0;
+  padding: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: var(--ink);
+  tab-size: 2;
+}
+
+.cs-code__body:focus-visible {
+  outline-offset: -2px;
+}
+
+.cs-code__comment {
+  color: var(--ink-subtle);
+}
+
+@media (max-width: 620px) {
+  .cs-code__bar,
+  .cs-code__body {
+    padding-inline: 1rem;
+  }
+
+  .cs-code__body {
+    font-size: 0.75rem;
+  }
+}
+
 .cs-section__callout {
   margin-top: 1.25rem;
   padding-left: 1rem;

@@ -95,7 +95,7 @@ export default function CityInsightCaseStudy() {
             {caseStudy.sections.map((section, index) => (
               <section
                 key={section.id}
-                className={`cs-section ${section.callout ? 'cs-section--anchor' : ''}`}
+                className={`cs-section ${section.callout ? 'cs-section--anchor' : ''} ${section.code ? 'cs-section--code' : ''}`}
                 aria-labelledby={`cs-${section.id}`}
               >
                 <Reveal className="cs-section__text">
@@ -123,9 +123,30 @@ export default function CityInsightCaseStudy() {
                       image={section.figure.image}
                       aspect={section.figure.aspect}
                       sizes="(max-width: 960px) 100vw, 55vw"
+                      caption={section.figure.caption}
                       className="ci-showcase"
                     />
                   </div>
+                )}
+                {section.code && (
+                  <Reveal as="figure" className="cs-section__figure cs-code" delay={120}>
+                    <figcaption className="cs-code__bar">
+                      <span className="cs-code__file">{section.code.file}</span>
+                      <a className="cs-code__source link" href={section.code.href}>
+                        View on GitHub
+                      </a>
+                    </figcaption>
+                    <pre className="cs-code__body" tabIndex={0} aria-label={`Excerpt from ${section.code.file}`}>
+                      <code>
+                        {section.code.source.split('\n').map((line, i) => (
+                          <span key={i} className={line.trim().startsWith('//') ? 'cs-code__comment' : undefined}>
+                            {line}
+                            {'\n'}
+                          </span>
+                        ))}
+                      </code>
+                    </pre>
+                  </Reveal>
                 )}
               </section>
             ))}

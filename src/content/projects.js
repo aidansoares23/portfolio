@@ -5,7 +5,41 @@ const cityInsightLinks = {
   methodology: "https://city-insight-client.vercel.app/methodology",
   client: "https://github.com/aidansoares23/city-insight-client",
   server: "https://github.com/aidansoares23/city-insight-server",
+  reviewTransaction:
+    "https://github.com/aidansoares23/city-insight-server/blob/6b9df11e2da532089261d1a5e85938a7b5fe0a9d/src/services/reviewService.js#L47-L133",
+  ciRuns: "https://github.com/aidansoares23/city-insight-server/actions",
 };
+
+// Trimmed from upsertMyReviewForCity; "// …" marks lines left out.
+const reviewTransactionCode = `const txResult = await db.runTransaction(async (tx) => {
+  // …check the city exists
+
+  const reviewSnap = await tx.get(reviewRef);
+  const isNew = !reviewSnap.exists;
+  const prevData = reviewSnap.exists ? reviewSnap.data() || {} : {};
+  const prevRatings = normalizeRatings(prevData.ratings);
+
+  // …read city_stats, city_metrics, and scoring norms
+
+  // On create: delta = full new ratings. On update: delta = new − old.
+  const normalizedRatings = normalizeRatings(ratings);
+  const deltaCount = isNew ? 1 : 0;
+  const deltaRatings = isNew
+    ? normalizedRatings
+    : subRatings(normalizedRatings, prevRatings);
+
+  const nextCount = Math.max(0, prevCount + deltaCount);
+  const nextSums = addRatings(prevSums, deltaRatings);
+  const averages = computeAverages(nextCount, nextSums);
+
+  // …recompute livability from the averages and metrics
+
+  tx.set(reviewRef, reviewPatch, { merge: true });
+  tx.set(statsRef, statsPatch, { merge: true });
+});
+
+invalidateCityListCache();
+invalidateCityDetailsCache(cityId);`;
 
 export const cityInsight = {
   id: "city-insight",
@@ -81,6 +115,14 @@ export const cityInsight = {
           "The livability score combines several of these signals. I documented its inputs and weights so visitors can see how the comparison is made.",
         ],
         link: { label: "Read the scoring methodology", href: cityInsightLinks.methodology },
+        figure: {
+          aspect: "1200 / 975",
+          caption: "The livability weights, as published on the methodology page.",
+          image: {
+            ...responsive("city-insight-livability", [700, 1200]),
+            alt: "Livability score weights: community overall rating 45%, objective safety score 30%, rent affordability 15%, air quality 10%, each ranked against every city in the dataset",
+          },
+        },
       },
       {
         id: "reviews",
@@ -91,6 +133,11 @@ export const cityInsight = {
           "After a successful write, the server invalidates the city-list and detail caches so subsequent requests reload the updated values.",
         ],
         callout: "Review changes and their aggregate scores commit in one transaction.",
+        code: {
+          file: "src/services/reviewService.js",
+          href: cityInsightLinks.reviewTransaction,
+          source: reviewTransactionCode,
+        },
       },
       {
         id: "assistant",
@@ -102,6 +149,7 @@ export const cityInsight = {
         ],
         figure: {
           aspect: "2232 / 1296",
+          caption: "Claude answers through read-only tools that query the city dataset.",
           image: {
             ...responsive("city-insight-ask-ai", [1000, 2000]),
             alt: "Ask AI answering “Which cities have rent under $2,000 and a safety score above 8?” with a ranked table of seven cities and a top pick",
@@ -116,6 +164,15 @@ export const cityInsight = {
           "The project has 211 server tests covering areas such as scoring, validation, authentication, and city queries. They run in GitHub Actions on pushes and pull requests to main. Another 107 client tests cover ratings, formatting, date handling, input sanitization, and safe redirects.",
           "Cursor-based review pagination and an in-memory city cache help manage database reads as visitors browse the application.",
         ],
+        link: { label: "See the CI runs", href: cityInsightLinks.ciRuns },
+        figure: {
+          aspect: "2000 / 1156",
+          caption: "Server CI runs in GitHub Actions.",
+          image: {
+            ...responsive("city-insight-ci-runs", [1000, 2000]),
+            alt: "GitHub Actions for the City Insight server: 35 workflow runs, the most recent seven all passing on main and the ai-assist branch",
+          },
+        },
       },
     ],
     demoNote: "The live application includes sample reviews to demonstrate the review and scoring features.",

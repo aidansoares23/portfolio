@@ -18,6 +18,8 @@ const images = [
   { source: 'city-insight-cities.png', name: 'city-insight-card', widths: [700], crop: { left: 404, top: 620, width: 682, height: 530 } },
   { source: 'city-insight-compare.png', name: 'city-insight-compare', widths: [1000, 2000] },
   { source: 'city-insight-compare.png', name: 'city-insight-radar', widths: [700], crop: { left: 1000, top: 1030, width: 880, height: 600 } },
+  // The livability weights from the live methodology page, beside the case study's data section.
+  { source: 'city-insight-livability.png', name: 'city-insight-livability', widths: [700, 1200] },
   { source: 'city-insight-ci-runs.png', name: 'city-insight-ci-runs', widths: [1000, 2000] },
   { source: 'city-insight-ask-ai.png', name: 'city-insight-ask-ai', widths: [1000, 2000] },
   { source: 'redevs-home.png', name: 'redevs-home', widths: [1000, 2000] },

@@ -14,6 +14,7 @@
   --font-serif: 'Gambetta', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
   --font-sans: 'General Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-label: var(--font-sans);
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
   /* Display treatment (Gambetta). */
   --display-weight: 500;
