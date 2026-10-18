@@ -14,7 +14,7 @@ npm run preview   # serve the production build
 ```
 src/
   content/        ← all copy, links, and image slots (edit here, not in components)
-    profile.js      name, intro, email, GitHub/LinkedIn/résumé links, About copy
+    profile.js      name, intro, email, GitHub/LinkedIn links, About copy
     projects.js     City Insight (homepage summary + case study), Wildfire Command, REDevs
     media.js        the three nature photographs
   components/
@@ -36,9 +36,3 @@ DESIGN.md         the design system and the reasoning behind it
 4. Reference it in `src/content/` with `responsive(name, widths)` and write its `alt` text.
 
 A slot without a `src` renders a labelled placeholder describing what belongs there.
-
-## Before publishing
-
-Search the code for `TODO`. The remaining items are:
-
-- the résumé PDF (`public/resume.pdf`), linked from the hero, header and contact sections

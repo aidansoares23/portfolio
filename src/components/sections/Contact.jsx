@@ -1,4 +1,4 @@
-import { ArrowUp, FileText } from 'lucide-react'
+import { ArrowUp } from 'lucide-react'
 import { useInView } from '../../hooks/useInView'
 import { profile } from '../../content/profile'
 import { bearImage, contactImage } from '../../content/media'
@@ -14,7 +14,6 @@ export default function Contact() {
   const links = [
     { label: 'LinkedIn', href: profile.links.linkedin, icon: <LinkedinIcon {...iconProps} />, external: true },
     { label: 'GitHub', href: profile.links.github, icon: <GithubIcon {...iconProps} />, external: true },
-    { label: 'Résumé', href: profile.links.resume, icon: <FileText {...iconProps} />, external: false },
   ]
 
   const [emailName, emailDomain] = profile.email.split('@')

@@ -180,16 +180,10 @@
   animation: hero-rise 1100ms var(--ease-out) 400ms both;
 }
 
-.hero__location,
-.hero__resume {
+.hero__location {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-}
-
-.hero__resume {
-  color: var(--ink);
-  text-decoration: none;
 }
 
 .hero__meta svg {

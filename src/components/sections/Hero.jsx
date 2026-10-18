@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { ArrowDown, FileText, MapPin } from 'lucide-react'
+import { ArrowDown, MapPin } from 'lucide-react'
 import { useScrollDrift } from '../../hooks/useScrollDrift'
 import { profile } from '../../content/profile'
 import { heroImage } from '../../content/media'
@@ -45,10 +45,6 @@ export default function Hero() {
           <MapPin aria-hidden="true" size={14} strokeWidth={1.75} />
           {profile.location} · {profile.availability}
         </p>
-        <a className="hero__resume" href={profile.links.resume}>
-          <FileText aria-hidden="true" size={14} strokeWidth={1.75} />
-          <span className="link">Résumé</span>
-        </a>
       </div>
     </section>
   )

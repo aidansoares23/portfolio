@@ -11,8 +11,6 @@ export const profile = {
   links: {
     github: "https://github.com/aidansoares23",
     linkedin: "https://www.linkedin.com/in/aidan-soares/",
-    // TODO: drop the PDF into /public as resume.pdf, or point this at a hosted copy.
-    resume: "/resume.pdf",
   },
 };
 

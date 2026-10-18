@@ -57,9 +57,6 @@ export default function SiteHeader() {
                 </a>
               </li>
             ))}
-            <li>
-              <a href={profile.links.resume}>Résumé</a>
-            </li>
           </ul>
         </nav>
       </div>
