@@ -52,6 +52,12 @@ export default function CityInsight() {
         pieces={project.collage}
         caption={project.leadCaption}
       />
+
+      <Reveal className="ci-more page">
+        <ArrowLink href="/city-insight/" external={false}>
+          {project.caseStudyPrompt}
+        </ArrowLink>
+      </Reveal>
     </article>
   )
 }

@@ -103,8 +103,7 @@
   display: grid;
   justify-items: start;
   gap: 0.35rem;
-  color: var(--stone-50);
-  text-shadow: 0 1px 12px rgb(0 0 0 / 0.35);
+  color: var(--ink);
   opacity: 0;
   transform: translateY(14px);
   transition:
@@ -123,7 +122,9 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding-block: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: rgb(247 244 239 / 0.88);
   font-size: var(--text-sm);
   font-weight: 500;
   text-decoration: none;

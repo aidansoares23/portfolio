@@ -2,7 +2,7 @@ export const profile = {
   name: "Aidan Soares",
   role: "Software Engineer",
   intro:
-    "I build web applications, from the interface to the API and database.",
+    "I build full-stack web applications. Most recently: City Insight, a React and Express app for comparing 107 California cities using public data, reviews, and an AI assistant.",
   location: "California",
   availability: "Open to remote work and relocation",
 

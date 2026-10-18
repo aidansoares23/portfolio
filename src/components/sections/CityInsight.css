@@ -71,6 +71,11 @@
   --showcase-pad: clamp(0.75rem, 2vw, 1.75rem);
 }
 
+.ci-more {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  font-size: var(--text-lg);
+}
+
 /* ---------- Homepage: source links ---------- */
 
 .ci-intro__source {

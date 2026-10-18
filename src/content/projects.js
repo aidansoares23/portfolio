@@ -54,8 +54,8 @@ export const cityInsight = {
     { label: "Tests", value: "211 server tests in CI · 107 client tests" },
   ],
   links: [
-    { label: "Explore City Insight", href: cityInsightLinks.live },
     { label: "How I built it", href: "/city-insight/", kind: "internal" },
+    { label: "Explore City Insight", href: cityInsightLinks.live },
     { label: "Client", href: cityInsightLinks.client, kind: "source" },
     { label: "Server", href: cityInsightLinks.server, kind: "source" },
   ],
@@ -87,6 +87,7 @@ export const cityInsight = {
     },
   ],
   leadCaption: "Home page, city comparison, and a city card.",
+  caseStudyPrompt: "Read how I built it",
   caseStudy: {
     description: "A web application for researching and comparing California cities.",
     overview:
